@@ -8,7 +8,6 @@
  */
 
 'use strict';
-
 class SliderMultithumb {
   constructor(domNode) {
     this.isMoving = false;
@@ -21,9 +20,6 @@ class SliderMultithumb {
 
     this.railNode = domNode.querySelector('.rail rect');
     this.rangeNode = domNode.querySelector('.range rect');
-
-    this.minSliderPosition = 0;
-    this.maxSliderPosition = 0;
 
     this.minSliderNode = domNode.querySelector('[role=slider].minimum');
     this.maxSliderNode = domNode.querySelector('[role=slider].maximum');
@@ -40,7 +36,7 @@ class SliderMultithumb {
     // Dimensions of the slider focus ring, thumb and rail
 
     this.svgWidth = 360;
-    this.svgHeight = 100;
+    this.svgHeight = 80;
 
     this.valueTop = 24;
     this.valueHeight = this.minSliderValueNode.getBoundingClientRect().height;
@@ -126,8 +122,6 @@ class SliderMultithumb {
     this.maxSliderNode.addEventListener('focus', this.onSliderFocus.bind(this));
     this.maxSliderNode.addEventListener('blur', this.onSliderBlur.bind(this));
 
-    this.railNode.addEventListener('click', this.onRailClick.bind(this));
-
     this.moveSliderTo(this.minSliderNode, this.getValue(this.minSliderNode));
     this.moveSliderTo(this.maxSliderNode, this.getValue(this.maxSliderNode));
   }
@@ -155,29 +149,30 @@ class SliderMultithumb {
   }
 
   isInRange(sliderNode, value) {
-    const valueMin = this.getValueMin(sliderNode);
-    const valueMax = this.getValueMax(sliderNode);
+    let valueMin = this.getValueMin(sliderNode);
+    let valueMax = this.getValueMax(sliderNode);
     return value <= valueMax && value >= valueMin;
   }
 
   isOutOfRange(value) {
-    const valueMin = this.getValueMin(this.minSliderNode);
-    const valueMax = this.getValueMax(this.maxSliderNode);
+    let valueMin = this.getValueMin(this.minSliderNode);
+    let valueMax = this.getValueMax(this.maxSliderNode);
     return value > valueMax || value < valueMin;
   }
 
   getXFromThumb(node) {
-    const points = node.getAttribute('points').split(',');
+    var points = node.getAttribute('points').split(',');
     return parseInt(points[0]);
   }
 
   moveSliderTo(sliderNode, value) {
-    let valueMax;
-    let valueMin;
-    let pos;
-    let points = '';
-    let x;
-    let width;
+    var valueMax,
+      valueMin,
+      pos,
+      x,
+      points = '',
+      width,
+      dollarValue;
 
     if (this.isMinSlider(sliderNode)) {
       valueMin = this.getValueMin(this.minSliderNode);
@@ -190,7 +185,7 @@ class SliderMultithumb {
     value = Math.min(Math.max(value, valueMin), valueMax);
 
     sliderNode.setAttribute('aria-valuenow', value);
-    const dollarValue = `$${value}`;
+    dollarValue = '$' + value;
 
     pos = this.railX;
     pos += Math.round(
@@ -199,8 +194,6 @@ class SliderMultithumb {
     );
 
     if (this.isMinSlider(sliderNode)) {
-      this.minSliderPosition = pos;
-
       // update ARIA attributes
       this.minSliderValueNode.textContent = dollarValue;
       this.maxSliderNode.setAttribute('aria-valuemin', value);
@@ -216,7 +209,7 @@ class SliderMultithumb {
 
       // Position value
       width = this.minSliderValueNode.getBoundingClientRect().width;
-      pos += (this.thumbWidth - width) / 2;
+      pos = pos + (this.thumbWidth - width) / 2;
       if (pos + width > this.maxSliderLeft - 2) {
         pos = this.maxSliderLeft - width - 2;
       }
@@ -224,8 +217,6 @@ class SliderMultithumb {
       this.minSliderRight = pos;
     } else {
       // update label and ARIA attributes
-      this.maxSliderPosition = pos;
-
       this.maxSliderValueNode.textContent = dollarValue;
       this.minSliderNode.setAttribute('aria-valuemax', value);
 
@@ -238,10 +229,7 @@ class SliderMultithumb {
       points += ` ${pos + this.thumb2Width},${this.thumbBottom}`;
       this.maxSliderThumbNode.setAttribute('points', points);
 
-      width = Math.max(
-        0,
-        this.maxSliderValueNode.getBoundingClientRect().width
-      );
+      width = this.maxSliderValueNode.getBoundingClientRect().width;
       pos = pos + this.thumbWidth + (this.thumbWidth - width) / 2;
       if (pos - width < this.minSliderRight + 2) {
         pos = this.minSliderRight + width + 2;
@@ -261,11 +249,11 @@ class SliderMultithumb {
   }
 
   onSliderKeydown(event) {
-    let flag = false;
-    const sliderNode = event.currentTarget;
-    const value = this.getValue(sliderNode);
-    const valueMin = this.getValueMin(sliderNode);
-    const valueMax = this.getValueMax(sliderNode);
+    var flag = false;
+    var sliderNode = event.currentTarget;
+    var value = this.getValue(sliderNode);
+    var valueMin = this.getValueMin(sliderNode);
+    var valueMax = this.getValueMax(sliderNode);
 
     switch (event.key) {
       case 'ArrowLeft':
@@ -338,14 +326,14 @@ class SliderMultithumb {
       this.movingSliderNode &&
       this.domNode.contains(event.target)
     ) {
-      let x = this.getSVGPoint(event).x - this.railX;
+      var x = this.getSVGPoint(event).x - this.railX;
       if (this.isMinSliderMoving) {
         x = Math.max(0, x - this.thumbWidth / 3);
       } else {
         x = Math.max(0, x - (5 * this.thumbWidth) / 3);
       }
       x = Math.min(x, this.railWidth - this.thumbWidth);
-      const value = Math.round(
+      var value = Math.round(
         (x * this.sliderDiffValue) / (this.railWidth - this.thumbWidth)
       );
       this.moveSliderTo(this.movingSliderNode, value);
@@ -359,34 +347,11 @@ class SliderMultithumb {
     this.isMoving = false;
     this.movingSliderNode = false;
   }
-
-  // handle click event on the rail
-  onRailClick(event) {
-    const x = this.getSVGPoint(event).x - this.railX;
-    const diffMin = x - this.minSliderPosition - (3 * this.thumbWidth) / 2;
-    const diffMax = this.maxSliderPosition - x;
-    const sliderNode =
-      (x < this.minSliderPosition || diffMin < diffMax) &&
-      x < this.maxSliderPosition
-        ? this.minSliderNode
-        : this.maxSliderNode;
-
-    let p = Math.max(0, x - this.thumbWidth);
-    p = Math.min(p, this.railWidth - this.thumbWidth);
-    const value = Math.round(
-      (p * this.sliderDiffValue) / (this.railWidth - this.thumbWidth)
-    );
-
-    this.moveSliderTo(sliderNode, value);
-
-    event.preventDefault();
-    event.stopPropagation();
-  }
 }
 
 // Initialize Multithumb Slider widgets on the page
-window.addEventListener('load', () => {
-  const slidersMultithumb = document.querySelectorAll('.slider-multithumb');
+window.addEventListener('load', function () {
+  var slidersMultithumb = document.querySelectorAll('.slider-multithumb');
 
   for (let i = 0; i < slidersMultithumb.length; i++) {
     new SliderMultithumb(slidersMultithumb[i]);
