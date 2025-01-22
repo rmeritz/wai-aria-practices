@@ -23,8 +23,60 @@ lang: en
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <title>Landmarks Pattern</title>
 
+<link
+  rel="stylesheet"
+  href="../../../../content-assets/wai-aria-practices/patterns/landmarks/css/tabs.css"
+/>
+
 <script src="../../../../content-assets/wai-aria-practices/shared/js/highlight.pack.js"></script>
 <script src="../../../../content-assets/wai-aria-practices/shared/js/app.js"></script>
+
+<script src="../../../../content-assets/wai-aria-practices/patterns/landmarks/js/tabs-automatic.js"></script>
+
+<style>
+  .landmark h3 {
+    margin: 0;
+    padding: 0;
+  }
+  .landmark [role="tabpanel"] h3 {
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
+  }
+
+  [role="tabpanel"] pre {
+    margin: 0;
+    padding: 0;
+  }
+  pre code.hljs {
+    background-color: #eee;
+  }
+
+  fieldset {
+    margin-top: 1em;
+    max-width: 15em;
+  }
+
+  label {
+    margin-top: 0.5em;
+    display: block;
+  }
+
+  input[type="text"] {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  input[type="submit"] {
+    margin-top: 1em;
+    display: block;
+  }
+
+  #at img {
+    max-width: 800px;
+  }
+</style>
 
 
 <link 
@@ -79,24 +131,1340 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
         </p>
       </section>
 
-      <section id="examples" class="examples-section">
+      <section id="examples">
         <img alt src="../../../../content-images/wai-aria-practices/images/pattern-landmarks.svg">
-        <h2>Examples</h2>
-        <ul>
-          <li><a href="examples/main.html">Main Landmark Example</a></li>
-          <li><a href="examples/navigation.html">Navigation Landmark Example</a></li>
-          <li><a href="examples/search.html">Search Landmark Example</a></li>
-          <li><a href="examples/banner.html">Banner Landmark Example</a></li>
-          <li><a href="examples/contentinfo.html">Contentinfo Landmark Example</a></li>
-          <li><a href="examples/complementary.html">Complementary Landmark Example</a></li>
-          <li><a href="examples/form.html">Form Landmark Example</a></li>
-          <li><a href="examples/region.html">Region Landmark Example</a></li>
-        </ul>
+
+
+
+        <section id="banner" class="landmark">
+          <h2>Banner Design Pattern</h2>
+
+          <p>A banner landmark identifies site-oriented content at the beginning of each page within a website. Site-oriented content typically includes things such as the logo or identity of the site sponsor, and site-specific search tool. A banner usually appears at the top of the page and typically spans the full width.</p>
+
+          <ul>
+              <li>Each page may have one <code>banner</code> landmark.</li>
+              <li>The <code>banner</code> landmark should be a top-level landmark.</li>
+              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements),
+                each <code>document</code> or <code>application</code> role may have one <code>banner</code> landmark.
+              </li>
+              <li>If a page includes more than one <code>banner</code> landmark, each should have a unique label.</li>
+            </ul>
+
+          <p>ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#banner"><code>banner</code> landmark</a>.</p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-banner-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-banner-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-banner-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-banner-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-banner-html"
+                   aria-labelledby="tab-banner-html"
+                   class="active">
+
+                <ul>
+                    <li>The HTML <code>header</code> element defines a <code>banner</code> landmark when its context is the <code>body</code> element.</li>
+                    <li>
+                      The HTML <code>header</code> element is not considered a <code>banner</code> landmark when it is descendant of any of following elements:
+                      <ul>
+                        <li><code>article</code></li>
+                        <li><code>aside</code></li>
+                        <li><code>main</code></li>
+                        <li><code>nav</code></li>
+                        <li><code>section</code></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><em>website information</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+      .... <em>banner content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/header</span>&gt;</span>
+
+  .... <em>page content</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/body</span>&gt;</span>
+
+  </code>
+</pre>
+
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-banner-aria"
+                   aria-labelledby="tab-banner-aria">
+
+                <p>When the <code>header</code> element cannot be used to identify a <code>banner</code> landmark, use the <code>role="banner"</code> attribute.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="banner"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><em>website information</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+      .... <em>banner content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  .... <em>page content</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/body</span>&gt;</span>
+
+  </code>
+</pre>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="complementary" class="landmark">
+          <h2>Complementary Design Pattern</h2>
+
+          <p>A <code>complementary</code> landmark is a supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content.</p>
+
+          <ul>
+            <li><code>complementary</code> landmarks should be top level landmarks (e.g. not contained within any other landmarks).</li>
+            <li>If the complementary content is not related to the main content, a more general role should be assigned (e.g. <code>region</code>).</li>
+            <li>If a page includes more than one <code>complementary</code> landmark, each should have a unique label.</li>
+          </ul>
+
+          <p>ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#complementary"><code>complementary</code> landmark</a></p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-complementary-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-complementary-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-complementary-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-complementary-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-complementary-html"
+                   aria-labelledby="tab-complementary-html"
+                   class="active">
+
+                <p>Use the HTML <code>aside</code> element to define a <code>complementary</code> landmark.</p>
+
+                <h3>One Complementary Landmark</h3>
+
+                <p>When there is only one <code>complementary</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><em>title for main content</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    .... <em>complementary content area </em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/aside</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Complementary Landmarks</h3>
+
+                <p>When there is more than one <code>complementary</code> landmark on a page, each should have a unique label.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span><span class="hljs-attr"> aria-labelledby="label1"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label1"</span>&gt;</span><em>title for complementary content area 1</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    .... <em>complementary content area 1</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/aside</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span><span class="hljs-attr"> aria-labelledby="label2"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label2"</span>&gt;</span><em>title for complementary content area 2</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    .... <em>complementary content area 2</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/aside</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-complementary-aria"
+                   aria-labelledby="tab-complementary-aria">
+
+                <p>When the <code>aside</code> element cannot be used to identify a <code>complementary</code> landmark, use the <code>role="complementary"</code> attribute.</p>
+
+                <h3>One Complementary Landmark</h3>
+
+                <p>When there is only one <code>complementary</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role="complementary"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><em>title for complementary content</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>complementary content area </em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Complementary Landmarks</h3>
+
+                <p>When there is more than one <code>complementary</code> landmark on a page, each should have a unique label.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div<span class="hljs-attr"> role="complementary"</span></span><span class="hljs-attr"> aria-labelledby="label1"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label1"</span>&gt;</span><em>title for complementary content aria 1</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    .... <em>complementary content area 1</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div<span class="hljs-attr">role="complementary"</span></span><span class="hljs-attr"> aria-labelledby="label2"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label2"</span>&gt;</span><em>title for complementary content area 2</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+    .... <em>complementary content area 2</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="contentinfo" class="landmark">
+          <h2>Contentinfo Design Pattern</h2>
+
+          <p> A <code>contentinfo</code> landmark is a way to identify common information at the bottom of each page within a website, typically called the "footer" of the page, including information such as copyrights and links to privacy and accessibility statements. </p>
+
+          <ul>
+              <li>Each page may have one <code>contentinfo</code> landmark.</li>
+              <li>The <code>contentinfo</code> landmark should be a top-level landmark.</li>
+              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements),
+                each <code>document</code> or <code>application</code> role may have one <code>contentinfo</code> landmark.
+              </li>
+              <li>If a page includes more than one <code>contentinfo</code> landmark, each should have a unique label.</li>
+            </ul>
+
+          <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#contentinfo"><code>contentinfo</code> landmark</a>.</p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-contentinfo-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-contentinfo-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-contentinfo-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-contentinfo-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-contentinfo-html"
+                   aria-labelledby="tab-contentinfo-html"
+                   class="active">
+
+                <ul>
+                    <li>The HTML <code>footer</code> element defines a <code>contentinfo</code> landmark when its context is the <code>body</code> element.</li>
+                    <li>
+                      The HTML <code>footer</code> element is not considered a <code>contentinfo</code> landmark when it is descendant of any of following elements:
+                      <ul>
+                        <li><code>article</code></li>
+                        <li><code>aside</code></li>
+                        <li><code>main</code></li>
+                        <li><code>nav</code></li>
+                        <li><code>section</code></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    .... <em>page content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><em>Contact, Policies and Legal</em><span class="hljs-tag">&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+      .... <em>contentinfo area content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">/body</span>&gt;</span>
+
+  </code>
+</pre>
+
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-contentinfo-aria"
+                   aria-labelledby="tab-contentinfo-aria">
+
+                <p>When the <code>footer</code> element cannot be used to identify a <code>contentinfo</code> landmark, use the <code>role="contentinfo"</code> attribute.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    .... <em>page content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="contentinfo"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><em>Contact, Policies and Legal</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+      .... <em>contentinfo content</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">/body</span>&gt;</span>
+
+  </code>
+</pre>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="form" class="landmark">
+          <h2>Form Design Pattern</h2>
+
+          <p> A <code>form</code> landmark identifies a region that contains a collection of items and objects that, as a whole, combine to create a form when no other named landmark is appropriate (e.g. main or search). </p>
+
+          <ul>
+            <li>Use the <code>search</code> landmark instead of the <code>form</code> landmark when the form is used for search functionality.</li>
+            <li>A <code>form</code> landmark should have a label to help users understand the purpose of the form.</li>
+            <li>A label for the <code>form</code> landmark should be identified using <code>aria-labelledby</code> to visible heading element (e.g. an <code>h1-h6</code> element).</li>
+            <li>If a page includes more than one <code>form</code> landmark, each should have a unique label.</li>
+            <li>
+              Whenever possible, controls contained in a <code>form</code> landmark in an HTML document should use native host semantics:
+              <ul>
+                <li><code>button</code></li>
+                <li><code>input</code></li>
+                <li><code>select</code></li>
+                <li><code>textarea</code></li>
+              </ul>
+              </li>
+            </ul>
+
+            <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#form"><code>form</code> landmark</a></p>
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-form-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-form-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-form-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-form-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-form-html"
+                   aria-labelledby="tab-form-html"
+                   class="active">
+
+                <p>If a <code>form</code> element has an accessible name it is considered <code>form</code> landmark.</p>
+
+                <h3>HTML Form Landmark Example</h3>
+                <p>Assume the following two forms (e.g. add contact and add organization) can be independently submitted from the same web page.</p>
+                <form aria-labelledby="contact_html5">
+                    <fieldset>
+                      <legend id="contact_html5">Add Contact</legend>
+
+                      <label for="name_html5">Name</label>
+                      <input id="name_html5" type="text" size="25">
+
+                      <label for="email_html5">E-mail</label>
+                      <input id="email_html5" type="text" size="25">
+
+                      <label for="phone_html5">Phone</label>
+                      <input id="phone_html5" type="text" size="25">
+
+                      <input type="submit" value="Add Contact">
+
+                    </fieldset>
+                  </form>
+                  <form aria-labelledby="organization_html5">
+                    <fieldset>
+                      <legend id="organization_html5">Add Organization</legend>
+
+                      <label for="org_html5">Organization</label>
+                      <input id="org_html5" type="text" size="25">
+
+                      <label for="www_html5">WWW</label>
+                      <input id="www_html5" type="text" size="25">
+
+                      <input type="submit" value="Add Organization">
+                    </fieldset>
+                  </form>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span><span class="hljs-attr"> aria-labelledby="contact"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span><span class="hljs-attr"> id="contact"</span>&gt;</span><em>Add Contact</em><span class="hljs-tag">&lt;<span class="hljs-name">/legend</span>&gt;</span>
+
+      &nbsp;&nbsp;.... <em>contact form controls</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/fieldset</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/form</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span><span class="hljs-attr"> aria-labelledby="organization"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span><span class="hljs-attr"> id="organization"</span>&gt;</span><em>Add Organization</em><span class="hljs-tag">&lt;<span class="hljs-name">/legend</span>&gt;</span>
+
+      &nbsp;&nbsp;.... <em>organization form controls</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/fieldset</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/form</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-form-aria"
+                   aria-labelledby="tab-form-aria">
+
+                <p>When the <code>form</code> element cannot be used to identify a <code>form</code> landmark, use the <code>role="form"</code> attribute.</p>
+
+                <h3>HTML Form Landmark Example</h3>
+                <p>Assume the following two forms (e.g. add contact and add organization) can be independently submitted from the same web page.</p>
+                <form aria-labelledby="contact_aria">
+                    <fieldset>
+                      <legend id="contact_aria">Add Contact</legend>
+
+                      <label for="name_aria">Name</label>
+                      <input id="name_aria" type="text" size="25">
+
+                      <label for="email_aria">E-mail</label>
+                      <input id="email_aria" type="text" size="25">
+
+                      <label for="phone_aria">Phone</label>
+                      <input id="phone_aria" type="text" size="25">
+
+                      <input type="submit" value="Add Contact">
+
+                    </fieldset>
+                  </form>
+                  <form aria-labelledby="organization_aria">
+                    <fieldset>
+                      <legend id="organization_aria">Add Organization</legend>
+
+                      <label for="org_aria">Organization</label>
+                      <input id="org_aria" type="text" size="25">
+
+                      <label for="www_aria">WWW</label>
+                      <input id="www_aria" type="text" size="25">
+
+                      <input type="submit" value="Add Organization">
+                    </fieldset>
+                  </form>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="form"</span><span class="hljs-attr"> aria-labelledby="contact"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span><span class="hljs-attr"> id="contact"</span>&gt;</span><em>Add Contact</em><span class="hljs-tag">&lt;<span class="hljs-name">/legend</span>&gt;</span>
+
+      &nbsp;&nbsp;.... <em>contact form controls</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/fieldset</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="form"</span><span class="hljs-attr"> aria-labelledby="organization"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span><span class="hljs-attr"> id="organization"</span>&gt;</span><em>Add Organization</em><span class="hljs-tag">&lt;<span class="hljs-name">/legend</span>&gt;</span>
+
+      &nbsp;&nbsp;.... <em>organization form controls</em> ....
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">/fieldset</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+        <section id="main" class="landmark">
+          <h2>Main Design Pattern</h2>
+
+          <p> A <code>main</code> landmark identifies the primary content of the page. </p>
+
+          <ul>
+            <li>Each page should have one <code>main</code> landmark.</li>
+            <li>The <code>main</code> landmark should be a top-level landmark.</li>
+            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements),
+              each <code>document</code> or <code>application</code> role may have one <code>main</code> landmark.
+            </li>
+            <li>If a page includes more than one <code>main</code> landmark, each should have a unique label.</li>
+          </ul>
+
+          <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#main"><code>main</code> landmark</a> </p>
+
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-main-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-main-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-main-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-main-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-main-html"
+                   aria-labelledby="tab-main-html"
+                   class="active">
+
+                <p>Use the HTML <code>main</code> element to define a <code>main</code> landmark.</p>
+
+                <h3>One Main Landmark</h3>
+
+                <p>When there is only one <code>main</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><em>title for main content</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area </em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/main</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Main Landmarks</h3>
+
+                <p>When there is more than one <code>main</code> landmark on a page, each should have a unique label.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span><span class="hljs-attr"> aria-labelledby="title1"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span><span class="hljs-attr"> id="title1"</span>&gt;</span><em>title for main content aria 1</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area 1</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/main</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span><span class="hljs-attr"> aria-labelledby="title2"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span><span class="hljs-attr"> id="title2"</span>&gt;</span><em>title for main content area 2</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area 2</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/main</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-main-aria"
+                   aria-labelledby="tab-main-aria">
+
+                <p>When the <code>main</code> element cannot be used to identify a <code>main</code> landmark, use the <code>role="main"</code> attribute.</p>
+
+                <h3>One Main Landmark</h3>
+
+                <p>When there is only one <code>main</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role="main"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><em>title for main content</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area </em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Main Landmarks</h3>
+
+                <p>When there is more than one <code>main</code> landmark on a page, each should have a unique label.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div<span class="hljs-attr"> role="main"</span></span><span class="hljs-attr"> aria-labelledby="title1"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span><span class="hljs-attr"> id="title1"</span>&gt;</span><em>title for main content aria 1</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area 1</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div<span class="hljs-attr"> role="main"</span></span><span class="hljs-attr"> aria-labelledby="title2"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span><span class="hljs-attr"> id="title2"</span>&gt;</span><em>title for main content area 2</em><span class="hljs-tag">&lt;<span class="hljs-name">/h1</span>&gt;</span>
+
+    &nbsp;&nbsp;.... <em>main content area 2</em> ....
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+</pre>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="navigation" class="landmark">
+          <h2>Navigation Design Pattern</h2>
+
+          <p> Navigation landmarks provide a way to identify groups (e.g. lists) of links that are intended to be used for website or page content navigation.</p>
+
+          <ul>
+              <li>If a page includes more than one <code>navigation</code> landmark, each should have a unique label.</li>
+              <li>If there is a visible label use <code>aria-labelledby</code> attribute for defining an accessible name, otherwise, use <code>aria-label</code> attribute.</li>
+              <li>If a <code>navigation</code> landmark has an identical set of links as another <code>navigation</code> landmark on the page, use the same label for each <code>navigation</code> landmark.</li>
+          </ul>
+
+          <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#navigation"><code>navigation</code> landmark</a></p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-navigation-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-navigation-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-navigation-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-navigation-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-navigation-html"
+                   aria-labelledby="tab-navigation-html"
+                   class="active">
+
+                <p>Use the HTML <code>nav</code> element to define a <code>navigation</code> landmark.</p>
+
+                <h3>One Navigation Landmark</h3>
+
+                <p>When there is only one <code>navigation</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span><span class="hljs-attr"> aria-label="<em>label for group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page1.html"</span>&gt;Link 1</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page2.html"</span>&gt;Link 2</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page3.html"</span>&gt;Link 3</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page4.html"</span>&gt;Link 4</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/nav</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Navigation Landmarks</h3>
+
+                <p>When there is more than one <code>navigation</code> landmark on a page, each should have a unique label.  If there is a visible label use <code>aria-labelledby</code> attribute for defining an accessible name, otherwise use <code>aria-label</code>.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span><span class="hljs-attr"> aria-label="<em>label for first group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page11.html"</span>&gt;Link 1</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page12.html"</span>&gt;Link 2</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page13.html"</span>&gt;Link 3</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page14.html"</span>&gt;Link 4</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/nav</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span><span class="hljs-attr"> aria-label="<em>label for second group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page21.html"</span>&gt;Link 5</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page22.html"</span>&gt;Link 6</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page23.html"</span>&gt;Link 7</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page24.html"</span>&gt;Link 8</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/nav</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-navigation-aria"
+                   aria-labelledby="tab-navigation-aria">
+
+                <p>When the <code>nav</code> element cannot be used to identify a <code>navigation</code> landmark, use the <code>role="navigation"</code> attribute.</p>
+
+                <h3>One Navigation Landmark</h3>
+
+                <p>When there is only one <code>navigation</code> landmark on a page, a label is optional.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="navigation"</span><span class="hljs-attr"> aria-label="<em>label for group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page1.html"</span>&gt;Link 1</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page2.html"</span>&gt;Link 2</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page3.html"</span>&gt;Link 3</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page4.html"</span>&gt;Link 4</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+</pre>
+
+                <h3>Multiple Navigation Landmarks</h3>
+
+                <p>When there is more than one <code>navigation</code> landmark on a page, each should have a unique label.  If there is a visible label use <code>aria-labelledby</code> attribute for defining an accessible name, otherwise use <code>aria-label</code>.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="navigation"</span><span class="hljs-attr"> aria-label="<em>label for first group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page11.html"</span>&gt;Link 1</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page12.html"</span>&gt;Link 2</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page13.html"</span>&gt;Link 3</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page14.html"</span>&gt;Link 4</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="navigation"</span><span class="hljs-attr"> aria-label="<em>label for second group of links</em>"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page21.html"</span>&gt;Link 5</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page22.html"</span>&gt;Link 6</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page23.html"</span>&gt;Link 7</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span><span class="hljs-attr"> href="page24.html"</span>&gt;Link 8</span><span class="hljs-tag">&lt;<span class="hljs-name">/a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">/li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">/ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+  </code>
+
+</pre>
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+        <section id="region" class="landmark">
+          <h2>Region Design Pattern</h2>
+
+          <p> A <code>region</code> landmark is a perceivable section containing content that is relevant to a specific, author-specified purpose and sufficiently important that users will likely want to be able to navigate to the section easily and to have it listed in a summary of the page.</p>
+
+          <ul>
+              <li>A <code>region</code> landmark must have a label.</li>
+              <li>If there is a visible label use <code>aria-labelledby</code> attribute for defining an accessible name, otherwise, use <code>aria-label</code> attribute.</li>
+              <li>If a page includes more than one <code>region</code> landmark, each should have a unique label.</li>
+              <li>The <code>region</code> landmark can be used identify content that named landmarks do not appropriately describe.</li>
+          </ul>
+
+          <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#region"><code>region</code> landmark</a></p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-region-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-region-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-region-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-region-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-region-html"
+                   aria-labelledby="tab-region-html"
+                   class="active">
+
+                <p>Use the HTML <code>section</code> element to define a <code>region</code> landmark.</p>
+
+                <h3>Using <code>section[aria-labelledby]</code> attribute</h3>
+
+                <p>Defines a label for each region using existing content on the page.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> aria-labelledby="label1"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label1"</span>&gt;</span><span class="hljs-tag"><em>title for region area 1</em>&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> aria-labelledby="label2"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label2"</span>&gt;</span><span class="hljs-tag"><em>title for region area 2</em>&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  </code>
+</pre>
+
+                <h3>Using <code>section[aria-label]</code> attribute</h3>
+
+                <p>Defines a label for each region using attribute value that is only visible to assistive technologies.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> aria-label="<em>title for region ara 1</em>"</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> aria-label="<em>title for region ara 2</em>"</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  </code>
+</pre>
+
+                <h3>Using <code>section[title]</code> attribute</h3>
+
+                <p>Defines a label for each region using attribute value that maybe available as a tooltip on some browsers.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> title="<em>title for region ara 1</em>"</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span><span class="hljs-attr"> title="<em>title for region ara 2</em>"</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/section</span>&gt;</span>
+
+  </code>
+</pre>
+
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-region-aria"
+                   aria-labelledby="tab-region-aria">
+
+                <p>A <code>role="region"</code> attribute is used to define a <code>region</code> landmark.</p>
+
+                <h3>Using <code>[role=region][aria-labelledby]</code> attribute</h3>
+
+                <p>Defines a label for each region using existing content on the page.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> aria-labelledby="label1"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label1"</span>&gt;</span><span class="hljs-tag"><em>title for region area 1</em>&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> aria-labelledby="label2"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span><span class="hljs-attr"> id="label2"</span>&gt;</span><span class="hljs-tag"><em>title for region area 2</em>&lt;<span class="hljs-name">/h2</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  </code>
+</pre>
+
+                <h3>Using <code>[role=region][aria-label]</code> attribute</h3>
+
+                <p>Defines a label for each region using attribute value that is only visible to assistive technologies.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> aria-label="<em>title for region ara 1</em>"</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> aria-label="<em>title for region ara 2</em>"</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  </code>
+</pre>
+
+                <h3>Using <code>[role=region][title]</code> attribute</h3>
+
+                <p>Defines a label for each region using attribute value that maybe available as a tooltip on some browsers.</p>
+
+<pre>
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> title="<em>title for region ara 1</em>"</span>&gt;</span>
+
+      ... content for region area 1 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> role="region"</span><span class="hljs-attr"> title="<em>title for region ara 2</em>"</span>&gt;</span>
+
+      ... content for region area 2 ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/div</span>&gt;</span>
+
+  </code>
+</pre>
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+        <section id="search" class="landmark">
+          <h2>Search Design Pattern</h2>
+
+          <p>A <code>search</code> landmark contains a collection of items and objects that, as a whole, combine to create search functionality to content on the website.</p>
+
+          <ul>
+            <li>Use the <code>search</code> landmark instead of the <code>form</code> landmark when the form is used for search functionality.</li>
+            <li>If a page includes more than one <code>search</code> landmark, each should have a unique label.</li>
+          </ul>
+
+          <p> ARIA Specification: <a href="https://www.w3.org/TR/wai-aria-1.2/#search"><code>search</code> landmark</a></p>
+
+          <div class="tablist">
+            <div role="tablist"
+                 class="automatic">
+              <button id="tab-search-html"
+                   tabindex="-1"
+                   aria-controls="tabpanel-search-html"
+                   role="tab">
+                 <span class="focus">
+                   HTML Techniques
+                 </span>
+               </button>
+              <button id="tab-search-aria"
+                   tabindex="-1"
+                   aria-controls="tabpanel-search-aria"
+                   role="tab">
+                 <span class="focus">
+                   ARIA Techniques
+                 </span>
+              </button>
+            </div>
+
+
+            <div class="tabpanels">
+              <div role="tabpanel"
+                   id="tabpanel-search-html"
+                   aria-labelledby="tab-search-html"
+                   class="active">
+
+                <p>There is no HTML element that defines a <code>search</code> landmark, see the ARIA techniques for defining a <code>search</code> landmark.</p>
+
+              </div>
+              <div role="tabpanel"
+                   id="tabpanel-search-aria"
+                   aria-labelledby="tab-search-aria">
+
+                <p>A <code>role="search"</code> attribute is used to define a <code>search</code> landmark.</p><pre>
+
+
+  <code class="sourcecode hljs language-xml"
+        data-highlighted="yes">
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span><span class="hljs-attr"> role="search"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span><span class="hljs-attr"> type="search"</span><span class="hljs-attr"> aria-label="Search Text"</span><span class="hljs-attr"> size="10"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span><span class="hljs-attr"> type="submit"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">/form</span>&gt;</span>
+
+
+  </code>
+</pre>
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+        <section id="at">
+          <h2>Assistive Technologies</h2>
+
+          <p>The following sections demonstrate how various popular
+            assistive technologies support landmark navigation</p>
+
+            <ul>
+              <li><a href="#jaws">JAWS Screen Reader for Windows</a></li>
+              <li><a href="#nvda">NVDA Screen Reader for Windows</a></li>
+              <li><a href="#vo">VoiceOver Screen Reader for macOS</a></li>
+              <li><a href="#orca">ORCA Screen Reader for Linux/Gnome</a></li>
+              <li><a href="#skipto">SkipTo.js browser extensions</a></li>
+            </ul>
+
+            <section>
+              <h2 id="jaws">JAWS Screen Reader for Windows</h2>
+              <p>The following commands are available in the JAWS screen reader (since version 15) for navigating landmarks:</p>
+
+              <table class="table table-striped table-hover" aria-labelledby="jaws">
+
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Q</td>
+                    <td>Go to main landmark</td>
+                  </tr>
+                  <tr>
+                    <td>R</td>
+                    <td>Go to next landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Shift+R</td>
+                    <td>Go to previous landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Insert+Control+R</td>
+                    <td>List of landmarks</td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+              <p>Screen shot of list of landmarks in JAWS</p>
+              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-jaws.png" alt="Screen shot of list of landmarks in JAWS"></p>
+            </section>
+
+            <section>
+              <h2 id="nvda">NVDA Screen Reader for Windows</h2>
+               <p>The following commands are available in NVDA screen reader (since version 2014.2) for navigating landmarks:</p>
+
+              <table class="table table-striped table-hover" aria-labelledby="nvda">
+
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>D</td>
+                    <td>Go to next landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Shift+D</td>
+                    <td>Go to previous landmark</td>
+                  </tr>
+                  <tr>
+                    <td>NVDA+F7</td>
+                    <td>List of landmarks</td>
+                  </tr>
+                </tbody>
+
+              </table>
+              <p>Screen shot of list of landmarks in NVDA</p>
+                <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-nvda.png" alt="Screen shot of list of landmarks in N V D A"></p>
+            </section>
+
+            <section>
+              <h2 id="vo">VoiceOver Screen Reader for macOS</h2>
+              <p>The following commands are available in VoiceOver screen reader for navigating landmarks:</p>
+              <table class="table table-striped table-hover" aria-labelledby="vo">
+
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>W (Quick Nav)</td>
+                    <td>Go to next landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Shift+W (Quick Nav)</td>
+                    <td>Go to previous landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Control+Option+U, then left or right arrow key to landmark list</td>
+                    <td>List of landmarks</td>
+                  </tr>
+                </tbody>
+
+              </table>
+              <p>Screen shot of list of landmarks in VoiceOver</p>
+              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-vo.png" alt="Screen shot of list of landmarks in voice over"></p>
+            </section>
+
+            <section>
+              <h2 id="orca">ORCA Screen Reader for Linux/GNOME</h2>
+              <p>The following commands are available in ORCA Screen reader for navigating landmarks:</p>
+
+              <table class="table table-striped table-hover" aria-labelledby="orca">
+
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>M</td>
+                    <td>Next landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Shift+M</td>
+                    <td>Previous landmark</td>
+                  </tr>
+                  <tr>
+                    <td>Alt+Shift+M</td>
+                    <td>List of landmarks</td>
+                  </tr>
+                </tbody>
+
+              </table>
+             <p>Screen shot of list of landmarks in Orca</p>
+            <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-orca.png" alt="Screen shot of list of landmarks in orca"></p>
+          </section>
+
+          <section>
+              <h2 id="skipto">SkipTo.js Browser Extension</h2>
+
+              <p>The SkipTo.js browser extension implements the <a href="https://www.w3.org/TR/UAAG/">User Agent Accessibility Guidelines 1.0</a> requirement <q><a href="https://www.w3.org/TR/UAAG/guidelines.html#tech-nav-structure">9.9 Allow Structured Navigation</a></q>. It does this by providing keyboard navigation to landmarks and headings on any web page.  The keyboard shortcut to open the SkipTo menu is <kbd>alt</kbd> + <kbd>0</kbd> on Windows/Linux and <kbd>option</kbd> + <kbd>0</kbd> on Mac keyboards.  SkipTo.js also includes shortcut keys for sequential navigation to landmark regions and headings.</p>
+
+              <ul style="margin-top: 1em">
+                <li><a href="https://chromewebstore.google.com/detail/skiptojs-for-chrome/mgmnhfooeifhicajoeoamlchoadbioof">SkipTo.js for Chrome</a> and should also work with <a href="https://brave.com">Brave</a> and <a href="https://vivaldi.com">Vivaldi</a> web browsers</li>
+                <li><a href="https://addons.mozilla.org/en-GB/firefox/addon/skipto-js-for-firefox">SkipTo.js for Firefox</a></li>
+                <li><a href="https://addons.opera.com/en/extensions/details/skiptojs-for-opera/">SkipTo.js for Opera</a></li>
+              </ul>
+
+             <p>Screen shot of list of SkipTo.js</p>
+              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/skipto.png" alt="Screen shot of list of landmarks and headings using SkipTo Landmarks &amp; Headings Browser Extension"></p>
+            </section>
+
+        </section>
+
+
+
+        <section id="resources">
+          <h2>ARIA Landmark Resources</h2>
+
+          <h3>Read More</h3>
+          <ul>
+            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA11">ARIA11: Using ARIA landmarks to identify regions of a page</a> (WCAG 2.0 Technique)</li>
+            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA20">ARIA20: Using the region role to identify a region of the page</a> (WCAG 2.0 Technique)</li>
+            <li><a href="https://alistapart.com/column/wai-finding-with-aria-landmark-roles">WAI-finding with ARIA Landmark Roles</a> (A List Apart)</li>
+            <li><a href="https://www.paciellogroup.com/blog/2013/02/using-wai-aria-landmarks-2013/">Using WAI-ARIA Landmarks – 2013</a> (Paciello Group)</li>
+            <li><a href="https://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/">Basic screen reader commands for accessibility testing</a>  (Paciello Group)</li>
+            <li><a href="https://webaim.org/projects/screenreadersurvey10/#landmarks">Screen Reader User Survey #10 Results: Landmarks/Regions</a> (WebAIM)</li>
+            <li><a href="https://webaim.org/projects/screenreadersurvey10/#heading">Screen Reader User Survey #10 Results: Heading Levels</a> (WebAIM)</li>
+          </ul>
+
+          <h3>Tools</h3>
+
+          <ul>
+            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/">SkipTo.js: Page Script (used on this page), Bookmarklets and Browser Extensions</a></li>
+            <li><a href="https://skipto-landmarks-headings.github.io">SkipTo Landmarks &amp; Headings: Browser Extension</a></li>
+            <li><a href="http://matatk.agrip.org.uk/landmarks/">Landmarks Browser Extension</a></li>
+            <li><a href="https://accessibility-bookmarklets.org/">Accessibility Bookmarklets: Landmark Bookmarklet</a></li>
+            <li><a href="http://whatsock.com/training/matrices/visual-aria.htm">The Visual ARIA Bookmarklet</a></li>
+            <li><a href="https://ainspector.disability.illinois.edu">AInspector for Firefox</a> (Landmark Rule Category)</li>
+          </ul>
+
+        </section>
       </section>
 
       <section id="keyboard_interaction">
         <h2>Keyboard Interaction</h2>
-        <p>Not applicable.</p>
+        <p>Not applicable, keyboard interaction is supported by assistive technologies or browser extensions.</p>
       </section>
 
       <section id="roles_states_properties">

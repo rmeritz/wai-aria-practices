@@ -229,7 +229,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/banner.html">Banner Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#banner">Banner Landmark Example</a></p>
           </section>
         </section>
 
@@ -261,7 +261,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/complementary.html">Complementary Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#complementary">Complementary Landmark Example</a></p>
           </section>
         </section>
 
@@ -305,7 +305,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
           <section>
             <h4>Examples</h4>
-            <p><a href="../../patterns/landmarks/examples/contentinfo.html">Contentinfo Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#contentinfo">Contentinfo Landmark Example</a></p>
           </section>
         </section>
 
@@ -350,7 +350,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/form.html">Form Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#form">Form Landmark Example</a></p>
           </section>
         </section>
 
@@ -382,7 +382,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/main.html">Main Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#main">Main Landmark Example</a></p>
           </section>
         </section>
 
@@ -410,7 +410,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/navigation.html">Navigation Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#navigation">Navigation Landmark Example</a></p>
           </section>
         </section>
 
@@ -440,7 +440,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/region.html">Region Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#region">Region Landmark Example</a></p>
           </section>
         </section>
 
@@ -467,7 +467,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <section>
             <h4>Examples</h4>
 
-            <p><a href="../../patterns/landmarks/examples/search.html">Search Landmark Example</a></p>
+            <p><a href="../../patterns/landmarks/#search">Search Landmark Example</a></p>
           </section>
         </section>
       </section>

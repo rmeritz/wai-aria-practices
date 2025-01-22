@@ -69,7 +69,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
   <div>
     
-    <p>Page last updated: September 12, 2024</p>
+    <p>Page last updated: January 19, 2025</p>
     <section>
       <h2>About These Reports</h2>
       <p>
@@ -190,7 +190,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><code>complementary</code></td>
             <td><a href="../../practices/landmark-regions/#aria_lh_complementary">Complementary</a>
 </td>
-            <td><a href="../../patterns/landmarks/examples/complementary.html">Complementary Landmark</a>
+            <td><a href="../../patterns/landmarks/#complementary">Complementary Landmark</a>
 </td>
           </tr>
           <tr>
@@ -211,7 +211,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><code>main</code></td>
             <td><a href="../../practices/landmark-regions/#aria_lh_main">Main</a>
 </td>
-            <td><a href="../../patterns/landmarks/examples/main.html">Main Landmark</a>
+            <td><a href="../../patterns/landmarks/#main">Main Landmark</a>
 </td>
           </tr>
           <tr>
@@ -230,7 +230,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><code>search</code></td>
             <td><a href="../../practices/landmark-regions/#aria_lh_search">Search</a>
 </td>
-            <td><a href="../../patterns/landmarks/examples/search.html">Search Landmark</a>
+            <td><a href="../../patterns/landmarks/#search">Search Landmark</a>
 </td>
           </tr>
           <tr>
@@ -287,7 +287,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><ul>
                 <li><a href="../../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../../patterns/landmarks/examples/banner.html">Banner Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#banner">Banner Landmark</a></li>
             </ul>
 </td>
           </tr>
@@ -349,7 +349,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><ul>
                 <li><a href="../../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../../patterns/landmarks/examples/contentinfo.html">Contentinfo Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#contentinfo">Contentinfo Landmark</a></li>
             </ul>
 </td>
           </tr>
@@ -374,7 +374,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="../../practices/names-and-descriptions/#naming_with_labels">Naming Form Controls with the Label Element</a></li>
             </ul>
 </td>
-            <td><a href="../../patterns/landmarks/examples/form.html">Form Landmark</a>
+            <td><a href="../../patterns/landmarks/#form">Form Landmark</a>
 </td>
           </tr>
           <tr>
@@ -515,7 +515,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <td><ul>
                 <li><a href="../../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../../patterns/landmarks/examples/navigation.html">Navigation Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#navigation">Navigation Landmark</a></li>
             </ul>
 </td>
           </tr>
@@ -641,7 +641,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="../../patterns/carousel/examples/carousel-2-tablist/">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../../patterns/landmarks/examples/region.html">Region Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#region">Region Landmark</a></li>
             </ul>
 </td>
           </tr>
@@ -1125,12 +1125,12 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="../../patterns/treeview/examples/treeview-1a/">File Directory Treeview  Using Computed Properties</a></li>
                 <li><a href="../../patterns/treeview/examples/treeview-1b/">File Directory Treeview  Using Declared Properties</a></li>
                 <li><a href="../../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../../patterns/landmarks/examples/complementary.html">Complementary Landmark</a></li>
-                <li><a href="../../patterns/landmarks/examples/form.html">Form Landmark</a></li>
-                <li><a href="../../patterns/landmarks/examples/main.html">Main Landmark</a></li>
-                <li><a href="../../patterns/landmarks/examples/navigation.html">Navigation Landmark</a></li>
-                <li><a href="../../patterns/landmarks/examples/region.html">Region Landmark</a></li>
-                <li><a href="../../patterns/landmarks/examples/search.html">Search Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#complementary">Complementary Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#form">Form Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#main">Main Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#navigation">Navigation Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#region">Region Landmark</a></li>
+                <li><a href="../../patterns/landmarks/#search">Search Landmark</a></li>
             </ul>
 </td>
           </tr>
