@@ -32,6 +32,7 @@ lang: en
 <script src="../../../../content-assets/wai-aria-practices/shared/js/app.js"></script>
 
 <script src="../../../../content-assets/wai-aria-practices/patterns/landmarks/js/tabs-automatic.js"></script>
+<script src="../../../../content-assets/wai-aria-practices/patterns/landmarks/js/image-resizing.js"></script>
 
 <style>
   .landmark h3 {
@@ -1571,23 +1572,6 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           The <a href="../../practices/landmark-regions/">Landmark Regions Practice</a> describes the HTML elements, roles, properties, and usage guidelines for each of the landmark region roles.
         </p>
       </section>
-
-      <script>
-        function resizeImagesInFigures () {
-          const figures = document.querySelectorAll('#at figure');
-          for(let i = 0; i < figures.length; i += 1) {
-            const image = figures[i].querySelector('img');
-            if (image) {
-              const rect = figures[i].getBoundingClientRect();
-            console.log(`[width]: ${rect.width}`);
-              image.style.width = (rect.width - 16) + 'px';
-            }
-          }
-        }
-
-        window.addEventListener('load', resizeImagesInFigures);
-        window.addEventListener('resize', resizeImagesInFigures);
-      </script>
 
     </div>
 
