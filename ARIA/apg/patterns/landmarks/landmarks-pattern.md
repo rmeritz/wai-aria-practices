@@ -1353,11 +1353,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                     <td>Go to next landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Shift+R</kbd></td>
+                    <td><kbd>Shift</kbd>+<kbd>R</kbd></td>
                     <td>Go to previous landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Insert+Control+R</kbd></td>
+                    <td><kbd>Insert</kbd>+<kbd>Control</kbd>+<kbd>R</kbd></td>
                     <td>List of landmarks</td>
                   </tr>
                 </tbody>
@@ -1388,11 +1388,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                     <td>Go to next landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Shift+D</kbd></td>
+                    <td><kbd>Shift</kbd>+<kbd>D</kbd></td>
                     <td>Go to previous landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>NVDA+F7</kbd></td>
+                    <td><kbd>NVDA</kbd>+<kbd>F7</kbd></td>
                     <td>List of landmarks</td>
                   </tr>
                 </tbody>
@@ -1418,15 +1418,15 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 </thead>
                 <tbody>
                   <tr>
-                    <td>W (Quick Nav)</td>
+                    <td><kbd>W</kbd> (Quick Nav)</td>
                     <td>Go to next landmark</td>
                   </tr>
                   <tr>
-                    <td>Shift+W (Quick Nav)</td>
+                    <td><kbd>Shift</kbd>+<kbd>W</kbd> (Quick Nav)</td>
                     <td>Go to previous landmark</td>
                   </tr>
                   <tr>
-                    <td>Control+Option+U, then left or right arrow key to landmark list</td>
+                    <td><kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>U</kbd>, then <kbd>left</kbd> or <kbd>right arrow</kbd> key to landmark list</td>
                     <td>List of landmarks</td>
                   </tr>
                 </tbody>
@@ -1457,11 +1457,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                     <td>Next landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Shift+M</kbd></td>
+                    <td><kbd>Shift</kbd>+<kbd>M</kbd></td>
                     <td>Previous landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Alt+Shift+M</kbd></td>
+                    <td><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td>
                     <td>List of landmarks</td>
                   </tr>
                 </tbody>
@@ -1495,7 +1495,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 </thead>
                 <tbody>
                   <tr>
-                    <td><kbd>Alt+0</kbd> or <kbd>Option+0</kbd></td>
+                    <td><kbd>Alt</kbd>+<kbd>0</kbd> or <kbd>Option</kbd>+<kbd>0</kbd></td>
                     <td>Open SkipTo.js Menu</td>
                   </tr>
                   <tr>
