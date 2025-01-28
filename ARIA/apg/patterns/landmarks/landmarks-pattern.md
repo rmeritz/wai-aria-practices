@@ -80,6 +80,8 @@ lang: en
     border: 2px solid #005a9c;
     border-radius: 5px;
     background-color: #ddd;
+    width: 100%;
+    max-width: 804px;
   }
 
   figure figcaption {
@@ -171,7 +173,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <li><a href="#form">Form Design Pattern</a></li>
           <li><a href="#main">Main Design Pattern</a></li>
           <li><a href="#navigation">Navigation Design Pattern</a></li>
-          <li><a href="../../../../content-assets/wai-aria-practices/patterns/landmarks/region">Region Design Pattern</a></li>
+          <li><a href="#region">Region Design Pattern</a></li>
           <li><a href="#search">Search Design Pattern</a></li>
           <li><a href="#at">Assistive Technology Support</a></li>
           <li><a href="#resources">ARIA Landmark Resources and Tools</a></li>
