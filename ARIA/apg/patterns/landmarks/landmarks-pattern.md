@@ -154,9 +154,10 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <li>All content should be contained in an <em>appropriate</em> landmark region.  </li>
           </ul>
 
-          <p>The following sections describe ways of using HTML sectioning elements and ARIA landmark roles that will most benefit users.</p>
+          <p>
+            The following sections describe ways of using HTML sectioning elements and ARIA landmark roles that will most benefit users.
+          </p>
 
-        
       </section>
 
       <section id="examples" class="examples-section">
