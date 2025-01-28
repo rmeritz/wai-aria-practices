@@ -199,7 +199,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
             <li>The <code>banner</code> landmark should be a top-level landmark.</li>
 
-            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements), each <code>document</code> or <code>application</code> role may have one <code>banner</code> landmark.</li>
+            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements), each <code>document</code> or <code>application</code> role may have one <code>banner</code> landmark.</li>
 
             <li>If a page includes more than one <code>banner</code> landmark, each should have a unique label (see <a href="#aria_lh_step3">Step 3</a> above).</li>
           </ul>
@@ -275,7 +275,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
             <li>The <code>contentinfo</code> landmark should be a top-level landmark.</li>
 
-            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements), each <code>document</code> or <code>application</code> role may have one <code>contentinfo</code> landmark.</li>
+            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements), each <code>document</code> or <code>application</code> role may have one <code>contentinfo</code> landmark.</li>
 
             <li>If a page includes more than one <code>contentinfo</code> landmark, each should have a unique label (see <a href="#aria_lh_step3">Step 3</a> above).</li>
           </ul>
@@ -364,7 +364,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
             <li>The <code>main</code> landmark should be a top-level landmark.</li>
 
-            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements), each <code>document</code> or <code>application</code> role may have one <code>main</code> landmark.</li>
+            <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements), each <code>document</code> or <code>application</code> role may have one <code>main</code> landmark.</li>
 
             <li>If a page includes more than one <code>main</code> landmark, each should have a unique label (see <a href="#aria_lh_step3">Step 3</a> above).</li>
           </ul>
