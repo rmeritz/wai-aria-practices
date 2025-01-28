@@ -1499,24 +1499,24 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                     <td>Open SkipTo.js Menu</td>
                   </tr>
                   <tr>
-                    <td><kbd>r</kbd></td>
-                    <td>Go to next landmark</td>
+                    <td><kbd>R</kbd></td>
+                    <td>Go to next landmark region</td>
                   </tr>
                   <tr>
-                    <td><kbd>R</kbd></td>
-                    <td>Go to previous landmark</td>
+                    <td><kbd>Shift</kbd>+<kbd>R</kbd></td>
+                    <td>Go to previous landmark region</td>
                   </tr>
                   <tr>
                     <td><kbd>c</kbd></td>
-                    <td>Go to <code>complementary</code> landmarks</td>
+                    <td>Go to <code>complementary</code> landmark regions</td>
                   </tr>
                   <tr>
                     <td><kbd>m</kbd></td>
-                    <td>Go to <code>main</code> landmarks</td>
+                    <td>Go to <code>main</code> landmark regions</td>
                   </tr>
                   <tr>
                     <td><kbd>n</kbd></td>
-                    <td>Go to <code>navigation</code> landmarks</td>
+                    <td>Go to <code>navigation</code> landmark regions</td>
                   </tr>
                 </tbody>
 
