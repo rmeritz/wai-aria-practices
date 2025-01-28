@@ -1426,7 +1426,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                     <td>Go to previous landmark</td>
                   </tr>
                   <tr>
-                    <td><kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>U</kbd>, then <kbd>left</kbd> or <kbd>right arrow</kbd> key to landmark list</td>
+                    <td><kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>U</kbd>, then <br><kbd>left</kbd> or <kbd>right arrow</kbd> key to landmark list</td>
                     <td>List of landmarks</td>
                   </tr>
                 </tbody>
@@ -1537,8 +1537,8 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
           <h3>Read More</h3>
           <ul>
-            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA11">ARIA11: Using ARIA landmarks to identify regions of a page</a> (WCAG 2.0 Technique)</li>
-            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA20">ARIA20: Using the region role to identify a region of the page</a> (WCAG 2.0 Technique)</li>
+            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA11">ARIA11: Using ARIA landmarks to identify regions of a page</a> (WCAG Technique)</li>
+            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/aria#ARIA20">ARIA20: Using the region role to identify a region of the page</a> (WCAG Technique)</li>
             <li><a href="https://alistapart.com/column/wai-finding-with-aria-landmark-roles">WAI-finding with ARIA Landmark Roles</a> (A List Apart)</li>
             <li><a href="https://www.paciellogroup.com/blog/2013/02/using-wai-aria-landmarks-2013/">Using WAI-ARIA Landmarks – 2013</a> (Paciello Group)</li>
             <li><a href="https://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/">Basic screen reader commands for accessibility testing</a>  (Paciello Group)</li>
