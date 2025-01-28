@@ -1508,7 +1508,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                   </tr>
                   <tr>
                     <td><kbd>c</kbd></td>
-                    <td>Go to <kbd>complementary</kbd> landmarks</td>
+                    <td>Go to <code>complementary</code> landmarks</td>
                   </tr>
                   <tr>
                     <td><kbd>m</kbd></td>
