@@ -73,8 +73,30 @@ lang: en
     display: block;
   }
 
-  #at img {
+  figure {
+    margin: 0;
+    padding: 0;
+    margin-top: 2em;
+    border: 2px solid #005a9c;
+    border-radius: 5px;
+    background-color: #ddd;
+  }
+
+  figure figcaption {
+    margin: 0;
+    padding: 0.5em;
+    background-color: #ddd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 110%;
+  }
+
+  figure img {
+    margin: 0;
+    padding: 0;
     max-width: 800px;
+    width: 99%;
+    border: none;
   }
 </style>
 
@@ -123,16 +145,39 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           Several landmark roles are implied by HTML elements.
           For example, the HTML <code>main</code> element automatically creates a main landmark region, and the HTML <code>nav</code> element creates a navigation landmark region.
           </p>
-        <p>
-          Since landmarks are intended to help assistive technology users perceive the high-level structure of a page, their value diminishes as their number grows.
-          For optimum value, a general rule of thumb is that a page contains seven or fewer landmark regions.
-          Another best practice is to ensure that all content is contained within an appropriate landmark region.
-          The <a href="../../practices/landmark-regions/">Landmark Regions Practice</a> describes ways of using HTML sectioning elements and ARIA landmark roles that will most benefit users.
-        </p>
+
+          <h3>Best Practices</h3>
+
+          <ul>
+            <li>Landmark regions are intended to help assistive technology users perceive the high-level structure of a page, their value diminishes as their number grows.   For optimum value, a general rule of thumb is that a page contains <em>seven or fewer</em> landmark regions.</li>
+            <li>When possible use HTML elements (e.g. <code>main</code>, <code>nav</code>, <code>aside</code> ...) <em>appropriately</em> to create landmark regions.</li>
+            <li>All content should be contained in an <em>appropriate</em> landmark region.  </li>
+          </ul>
+
+          <p>The following sections describe ways of using HTML sectioning elements and ARIA landmark roles that will most benefit users.</p>
+
+        
       </section>
 
-      <section id="examples">
+      <section id="examples" class="examples-section">
         <img alt src="../../../../content-images/wai-aria-practices/images/pattern-landmarks.svg">
+        <h2>Examples</h2>
+
+        <ul>
+          <li><a href="#banner">Banner Design Pattern</a></li>
+          <li><a href="#complementary">Complementary Design Pattern</a></li>
+          <li><a href="#contentinfo">Contentinfo Design Pattern</a></li>
+          <li><a href="#form">Form Design Pattern</a></li>
+          <li><a href="#main">Main Design Pattern</a></li>
+          <li><a href="#navigation">Navigation Design Pattern</a></li>
+          <li><a href="../../../../content-assets/wai-aria-practices/patterns/landmarks/region">Region Design Pattern</a></li>
+          <li><a href="#search">Search Design Pattern</a></li>
+          <li><a href="#at">Assistive Technology Support</a></li>
+          <li><a href="#resources">ARIA Landmark Resources and Tools</a></li>
+        </ul>
+      </section>
+
+      <section id="landmarks">
 
 
 
@@ -144,7 +189,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <ul>
               <li>Each page may have one <code>banner</code> landmark.</li>
               <li>The <code>banner</code> landmark should be a top-level landmark.</li>
-              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements),
+              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements),
                 each <code>document</code> or <code>application</code> role may have one <code>banner</code> landmark.
               </li>
               <li>If a page includes more than one <code>banner</code> landmark, each should have a unique label.</li>
@@ -396,7 +441,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <ul>
               <li>Each page may have one <code>contentinfo</code> landmark.</li>
               <li>The <code>contentinfo</code> landmark should be a top-level landmark.</li>
-              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and <code>frame</code> elements),
+              <li>When a page contains nested <code>document</code> and/or <code>application</code> roles (e.g. typically through the use of <code>iframe</code> and custom elements),
                 each <code>document</code> or <code>application</code> role may have one <code>contentinfo</code> landmark.
               </li>
               <li>If a page includes more than one <code>contentinfo</code> landmark, each should have a unique label.</li>
@@ -1316,8 +1361,10 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
               </table>
 
-              <p>Screen shot of list of landmarks in JAWS</p>
-              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-jaws.png" alt="Screen shot of list of landmarks in JAWS"></p>
+              <figure>
+                <figcaption>Screen shot of list of landmarks in JAWS</figcaption>
+                <img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-jaws.png" alt>
+              </figure>
             </section>
 
             <section>
@@ -1348,8 +1395,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 </tbody>
 
               </table>
-              <p>Screen shot of list of landmarks in NVDA</p>
-                <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-nvda.png" alt="Screen shot of list of landmarks in N V D A"></p>
+
+              <figure>
+                <figcaption>Screen shot of list of landmarks in NVDA</figcaption>
+                <img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-nvda.png" alt>
+              </figure>
             </section>
 
             <section>
@@ -1379,8 +1429,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 </tbody>
 
               </table>
-              <p>Screen shot of list of landmarks in VoiceOver</p>
-              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-vo.png" alt="Screen shot of list of landmarks in voice over"></p>
+
+              <figure>
+                <figcaption>Screen shot of list of landmarks in VoiceOver</figcaption>
+                <img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-vo.png" alt>
+              </figure>
             </section>
 
             <section>
@@ -1411,8 +1464,11 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 </tbody>
 
               </table>
-             <p>Screen shot of list of landmarks in Orca</p>
-            <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-orca.png" alt="Screen shot of list of landmarks in orca"></p>
+
+              <figure>
+                <figcaption>Screen shot of list of landmarks in Orca</figcaption>
+                <img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-orca.png" alt>
+              </figure>
           </section>
 
           <section>
@@ -1426,8 +1482,10 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="https://addons.opera.com/en/extensions/details/skiptojs-for-opera/">SkipTo.js for Opera</a></li>
               </ul>
 
-             <p>Screen shot of list of SkipTo.js</p>
-              <p><img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/skipto.png" alt="Screen shot of list of landmarks and headings using SkipTo Landmarks &amp; Headings Browser Extension"></p>
+              <figure>
+                <figcaption>Screen shot of list of headings and landmarks in SkipTo.js Menu</figcaption>
+                <img src="../../../../content-images/wai-aria-practices/patterns/landmarks/images/landmarks-skipto.png" alt>
+              </figure>
             </section>
 
         </section>
@@ -1435,7 +1493,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="resources">
-          <h2>ARIA Landmark Resources</h2>
+          <h2>ARIA Landmark Resources and Tools</h2>
 
           <h3>Read More</h3>
           <ul>
@@ -1456,8 +1514,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
             <li><a href="http://matatk.agrip.org.uk/landmarks/">Landmarks Browser Extension</a></li>
             <li><a href="https://accessibility-bookmarklets.org/">Accessibility Bookmarklets: Landmark Bookmarklet</a></li>
             <li><a href="http://whatsock.com/training/matrices/visual-aria.htm">The Visual ARIA Bookmarklet</a></li>
-            <li><a href="https://ainspector.disability.illinois.edu">AInspector for Firefox</a> (Landmark Rules)</li>
-            <li><a href="https://opena11y.github.io/evaluation-library/rules-rc.html">OpenA11y Landmark Rules</a> (Landmark Rules)</li>
+            <li><a href="https://ainspector.disability.illinois.edu">AInspector for Firefox</a> (<a href="https://opena11y.github.io/evaluation-library/rules-rc.html">OpenA11y Landmark Rules</a>)</li>
           </ul>
 
         </section>
