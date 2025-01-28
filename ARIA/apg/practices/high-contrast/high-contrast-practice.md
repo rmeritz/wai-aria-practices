@@ -673,6 +673,12 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <p>The following table identifies the current system colors defined in <a href="https://www.w3.org/TR/css-color-4/#css-system-colors">CSS Color Module Level 4</a>.  System colors are supported in all major browsers, but the <strong>actual colors</strong> they render may vary between browsers and operating systems based on default and user theme and contrast settings.</p>
 
+        <p id="support-notice">
+          <strong>Caution: </strong>
+          Some browsers may render a system color as <code>transparent</code>, for example the Chrome browser for <code>AccentColor</code> and <code>AccentColorText</code> colors.
+          Avoid using these system colors since the color contrast will be less predictable.
+        </p>
+
         <div class="table-wrap"><table aria-labelledby="system-colors" class="data">
           <thead>
             <tr>
@@ -749,7 +755,11 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <h3><code>currentcolor</code> Keyword</h3>
 
-        <p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element.   When the user chooses a high contrast setting the browser changes the <code>color</code> and <code>background-color</code> values of text content.   The <code>currentcolor</code> value is set to the text color for use in setting the color of other properties including: <code>border</code> and <code>outline</code> on HTML elements, and <code>stroke</code> and <code>fill</code> properties on SVG elements.  Note: There is no equivalent value for using the background color, so when using this technique it is important for the background of the element to be transparent to allow the background color of the page to be visible. </p>
+        <p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element.   When the user chooses a high contrast theme the browser changes the <code>color</code> and <code>background-color</code> values of text content.   The <code>currentcolor</code> value is set to the text color for use in setting the color of other properties including: <code>border</code> and <code>outline</code> on HTML elements, and <code>stroke</code> and <code>fill</code> properties on SVG elements.</p>
+
+        <p id="support-notice">
+          Caution: There is no equivalent to the <code>currentcolor</code> value for setting the background color, so when using this technique it is important for the background of the element to be transparent to allow the background color of the page to be visible.
+        </p>
 
         <h3 id="currentcolor-example">Current Color Example: Switch</h3>
 
