@@ -1586,6 +1586,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
         }
 
         window.addEventListener('load', resizeImagesInFigures);
+        window.addEventListener('resize', resizeImagesInFigures);
       </script>
 
     </div>
