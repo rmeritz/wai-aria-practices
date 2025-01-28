@@ -73,18 +73,19 @@ lang: en
     display: block;
   }
 
-  figure {
+  #at figure {
     margin: 0;
     padding: 0;
     margin-top: 2em;
     border: 2px solid #005a9c;
     border-radius: 5px;
     background-color: #ddd;
-    width: 100%;
-    max-width: 804px;
+    width: auto;
+    max-width: 760px;
+    overflow: clip;
   }
 
-  figure figcaption {
+  #at figure figcaption {
     margin: 0;
     padding: 0.5em;
     background-color: #ddd;
@@ -93,12 +94,11 @@ lang: en
     font-size: 110%;
   }
 
-  figure img {
+  #at figure img {
     margin: 0;
-    padding: 0;
-    max-width: 800px;
-    width: 99%;
+    padding: 2px;
     border: none;
+    width: auto;
   }
 </style>
 
@@ -1572,7 +1572,25 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
         </p>
       </section>
 
+      <script>
+        function resizeImagesInFigures () {
+          const figures = document.querySelectorAll('#at figure');
+          for(let i = 0; i < figures.length; i += 1) {
+            const image = figures[i].querySelector('img');
+            if (image) {
+              const rect = figures[i].getBoundingClientRect();
+            console.log(`[width]: ${rect.width}`);
+              image.style.width = (rect.width - 16) + 'px';
+            }
+          }
+        }
+
+        window.addEventListener('load', resizeImagesInFigures);
+      </script>
+
     </div>
+
+
   
 </div>
 <script
