@@ -11,11 +11,11 @@
 
 function resizeImagesInFigures() {
   const figures = document.querySelectorAll('#at figure');
-  for(let i = 0; i < figures.length; i++) {
+  for (let i = 0; i < figures.length; i++) {
     const image = figures[i].querySelector('img');
     if (image) {
       const rect = figures[i].getBoundingClientRect();
-      image.style.width = (rect.width - 16) + 'px';
+      image.style.width = rect.width - 16 + 'px';
     }
   }
 }
