@@ -742,20 +742,6 @@ button.color-scheme[role="switch"] svg circle.off {
           </thead>
           <tbody>
             <tr>
-              <td>macOS 14.4</td>
-              <td>Invert Colors: Off (default)</td>
-              <td>
-                <img src="../../../../content-images/wai-aria-practices/practices/high-contrast/images/forced-colors-macos-invert-off.png" alt="Screen shot of switch example with invert colors turned off" style="height: 90px">
-              </td>
-            </tr>
-            <tr>
-              <td>macOS 14.4</td>
-              <td>Invert Colors: on</td>
-              <td>
-                <img src="../../../../content-images/wai-aria-practices/practices/high-contrast/images/forced-colors-macos-invert-on.png" alt="Screen shot of switch example with invert colors turned on" style="height: 90px">
-              </td>
-            </tr>
-            <tr>
               <td>Windows 11</td>
               <td>Contrast Theme: none (default)</td>
               <td>
