@@ -732,7 +732,7 @@ button.color-scheme[role="switch"] svg circle.off {
         </p>
 
         <div class="table-wrap"><table class="data">
-          <caption>Rating Slider Example with Selected High Contrast User Settings</caption>
+          <caption>Rating Slider Example with Selected Contrast Theme Settings</caption>
           <thead>
             <tr>
               <th>Operating System</th>
