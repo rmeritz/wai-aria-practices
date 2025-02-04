@@ -775,6 +775,37 @@ button.color-scheme[role="switch"] svg circle.off {
             </tr>
             <tr>
               <td>
+                Checkbox
+              </td>
+              <td>
+                <label class="system-colors">
+                  <input type="checkbox">Unchecked
+                </label>
+                <label class="system-colors">
+                  <input type="checkbox" checked>Checked
+                </label>
+              </td>
+              <td>
+                <ul class="system-colors">
+                  <li>ButtonBorder</li>
+                  <li>ButtonFace</li>
+                  <li>ButtonText</li>
+                  <li>Highlight</li>
+                </ul>
+              </td>
+              <td>
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of button in Aquatic Contrast theme">
+              </td>
+              <td>
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of button in Desert Contrast theme">
+              </td>
+              <td>
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of button in Night Sky Contrast theme">
+              </td>
+            </tr>
+
+            <tr>
+              <td>
                 Textbox
               </td>
               <td>
@@ -808,7 +839,6 @@ button.color-scheme[role="switch"] svg circle.off {
               </td>
               <td>
                 <ul class="system-colors">
-                  <li>ActiveText</li>
                   <li>ButtonBorder</li>
                   <li>ButtonFace</li>
                   <li>ButtonText</li>
