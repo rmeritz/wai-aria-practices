@@ -120,14 +120,14 @@ lang: en
       </li>
 
       <li class="tile">
-        <a href="high-contrast/">
+        <a href="color-settings/">
           <h2 class="tile-name">
-            <span>Supporting High Contrast Settings</span>
+            <span>Supporting Color Contrast Settings</span>
           </h2>
         </a>
         <div class="tile-introduction">
           Some people need more than the required default minimum color contrast to perceive content.
-          make components responsive to operating system color and contrast settings so it is accessible to them.
+          make content responsive to operating system color and contrast settings so it is accessible to them.
         </div>
       </li>
 
