@@ -127,7 +127,7 @@ lang: en
         </a>
         <div class="tile-introduction">
           Some people need more than the required default minimum color contrast to perceive content.
-          make content responsive to operating system color and contrast settings so it is accessible to them.
+          make content responsive to operating system color and contrast settings so it meets people's needs for different colors or higher contrast.
         </div>
       </li>
 
