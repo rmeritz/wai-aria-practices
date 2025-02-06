@@ -722,14 +722,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-night-sky-theme.png" alt="screen shot of paragraph with no styling in Night Sky Contrast theme">
               </td>
             </tr>
-            <tr>
+            <tr id="system-color-links">
               <td>
                 Links
               </td>
               <td>
-                <div><a href="#">Link 1</a></div>
-                <div><a href="#">Link 2</a></div>
-                <div><a href="#" disabled>Link 3</a></div>
+                <div><a href="#system-color-links">Link 1</a></div>
+                <div><a href="#system-color-links">Link 2</a></div>
               </td>
               <td>
                 <ul class="system-colors">
@@ -737,7 +736,6 @@ button.color-scheme[role="switch"] svg circle.off {
                   <li>LinkText</li>
                   <li>VisitedText</li>
                   <li>Canvas</li>
-                  <li>GrayText</li>
                 </ul>
               </td>
               <td>
