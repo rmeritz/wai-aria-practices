@@ -754,7 +754,7 @@ button.color-scheme[role="switch"] svg circle.off {
               </td>
               <td>
                   <button>Button 1</button>
-                  <input type="button" value="Button 2">
+                  <div><input type="button" value="Button 2" disabled></div>
               </td>
               <td>
                 <ul class="system-colors">
@@ -800,13 +800,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of button in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of checkboxes in Aquatic Contrast theme">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of button in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of checkboxes in Desert Contrast theme">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of button in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of checkboxes in Night Sky Contrast theme">
               </td>
             </tr>
             <tr>
@@ -841,13 +841,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of button in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-aquatic-theme.png" alt="screen shot of radio buttons in Aquatic Contrast theme">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of button in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-desert-theme.png" alt="screen shot of radio buttons in Desert Contrast theme">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of button in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-night-sky-theme.png" alt="screen shot of radio buttons in Night Sky Contrast theme">
               </td>
             </tr>
 
@@ -1121,7 +1121,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
                 </ul>
               </td>
               <td>
-                Non-interative text content will automatically be forced to use these system colors, unless for some reason they are part are part of links or other form controls.
+                Non-interactive text content will automatically use the <code>CanvasText</code> and <code>Canvas</code> colors, unless for some reason it is a descendant of a link or form control.
               </td>
             </tr>
             <tr>
@@ -1137,8 +1137,8 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
                 </ul>
               </td>
               <td>
-                For custom components that behave as links, they should use the link styling.
-                The styling will be automatically applied if the control is already using the <code>a</code> element.
+                For custom components that behave as links, they should use the <code>linkText</code> color.
+                The styling will be automatically applied if the control is already a descendant of an <code>a</code> element.
               </td>
             </tr>
             <tr>
@@ -1153,7 +1153,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
                 </ul>
               </td>
               <td>
-                For custom components that behave as buttons, they should use the button styling.
+                For custom components that behave as buttons, they should use the <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code> colors.
                 The styling will be automatically applied if the control is already using the <code>button</code> element.
               </td>
             </tr>
@@ -1171,7 +1171,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
                 </ul>
               </td>
               <td>
-                The styles associated with custom components that include text input.  If the text input include selection, the <code>Field</code> and <code>FieldText</code> values should be used for selection.
+                The colors associated with custom components that include text input should use the button colors.  If the text input include selection, the <code>Field</code> and <code>FieldText</code> values should be used for selection.
               </td>
             </tr>
             <tr>
@@ -1193,6 +1193,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
               </td>
               <td>
                 <ul class="compact">
+                  <li>The colors associated with checkboxes, radio buttons and range control components should use the button colors.</li>
                   <li>For checkboxes and radio buttons the background of the checkbox and radio button can be highlighted using <code>ActiveText</code> or <code>Highlight</code> values for the thumb.</li>
                   <li>For the range control the features of the thumb and the slider can be differentiated by using <code>ActiveText</code> or <code>Highlight</code> values for the thumb.  They can also be used to enhance the identification of the current value by using them to fill in the left side of the rail to the thumb control.</li>
                 </ul>
@@ -1226,9 +1227,9 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
 
         <h3 id="forced-colors-example-switch">System Color Example: Switch using <code>div[role="switch"]</code></h3>
 
-      <p>The following switch example uses systems colors to style the SVG elements used to indicate the on and off states.  One reason current color cannot be used in this example is due to using <code>div[role="switch"]</code> to identify the switch component.  The <code>div</code> elements current color is <code>CanvasText</code>, and the switch needs to use the colors associated with buttons: <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code>. In addition to the button colors, the system colors <code>ActiveText is used for the fill of the SVG circle when the switch is on the on state and the <code>GrayText</code> is used as the fill in the off state to make the state easier to dicern.</code>
+      <p>The following switch example uses systems colors to style the SVG elements used to indicate the on and off states.  One reason current color cannot be used in this example is due to using <code>div[role="switch"]</code> to identify the switch component.  The <code>div</code> elements current color is <code>CanvasText</code>, and the switch needs to use the colors associated with buttons: <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code>. In addition to the button colors, the system colors <code>ActiveText</code> is used for the fill of the SVG circle when the switch is on the on state and the <code>GrayText</code> is used as the fill in the off state to make the state easier to discern.</p>
 
-        </p><div class="example">
+        <div class="example">
           <div role="switch" tabindex="0" aria-checked="false" class="system-color">
             <span class="label">Living Room Lights</span>
             <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
