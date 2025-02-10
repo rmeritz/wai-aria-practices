@@ -923,7 +923,7 @@ button.color-scheme[role="switch"] svg circle.off {
         <p>System colors values should be used when the custom elements are built using elements whose current color does not match the semantics of the custom component and when <code>currentcolor</code> is insufficient for matching the styling needs of the component to make it's features discernible.  Using System colors allows for setting both foreground and background colors and making features of the custom control identifiable.  For example using <code>div</code> elements to build a custom slider component.  If the <code>currentColor</code> value is used the <code>div</code> elements cause the features of the slider to be rendered using the <code>CanvasText</code> color, when the slider features should be rendered using <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code>. System Colors require using the <code>forced-colors: active</code> media query to ensure the system colors are only used to override the authors theme when the use renables a Contrast Theme.</p>
 
        <div class="table-wrap"><table class="data">
-          <caption>Summary of Current Color vs. System Color</caption>
+          <caption>Summary of Current Color vs. System Color for Interactive Components</caption>
           <thead>
             <tr>
               <th style="width: 7em">Technique</th>
@@ -967,10 +967,62 @@ button.color-scheme[role="switch"] svg circle.off {
           </tbody>
         </table></div>
 
+        <h4 id="compare-switch-examples">Comparing Switch Examples</h4>
+
+        <p>The following tables describe the differences in the two switch examples using Current Color and System Colors.
+
+
+       <div class="table-wrap"><table class="data">
+          <caption>Switch Examples using Current Color and Systems Colors</caption>
+          <thead>
+            <tr>
+              <th rowspan="2">Example</th>
+              <th colspan="2">Span</th>
+              <th colspan="2">SVG Rect</th>
+              <th colspan="2">SVG Circle Off</th>
+              <th colspan="2">SVG Circle On</th>
+            </tr>
+            <tr>
+              <th>Background-Color</th>
+              <th>Color</th>
+              <th>Stroke</th>
+              <th>Fill</th>
+              <th>Stroke</th>
+              <th>Fill</th>
+              <th>Stroke</th>
+              <th>Fill</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>button[role="switch"]</code></td>
+              <td>Opacity 0</td>
+              <td>CurrentColor</td>
+              <td>Opacity 0</td>
+              <td>CurrentColor</td>
+              <td>CurrentColor</td>
+              <td>CurrentColor</td>
+              <td>CurrentColor</td>
+              <td>CurrentColor</td>
+            </tr>
+            <tr>
+              <td><code>div[role="switch"]</code></td>
+              <td>ButtonFace</td>
+              <td>ButtonText</td>
+              <td>ButtonBorder</td>
+              <td>ButtonFace</td>
+              <td>ButtonText</td>
+              <td>GrayText</td>
+              <td>ButtonText</td>
+              <td>ActiveText</td>
+            </tr>
+          </tbody>
+        </table></div>
+
 
         <h3>Using Current Color</h3>
 
-        <p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element, making <code>currentcolor</code> a convenient means for custom components using existing form controls like <code>input</code> and <code>button</code> elements to also automatically adapt to changes in contrast themes.  When the user chooses a contrast theme the browser sets the <code>color</code> and <code>background-color</code> values of HTML elements and ignore any authoring styling.  When a component is based on a <code>button</code> or other HTML control the elements colors will be set to the users color preference and any descendant elements can inherit the color using the <code>currentColor</code> value.  </p>
+        </p><p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element, making <code>currentcolor</code> a convenient means for custom components using existing form controls like <code>input</code> and <code>button</code> elements to also automatically adapt to changes in contrast themes.  When the user chooses a contrast theme the browser sets the <code>color</code> and <code>background-color</code> values of HTML elements and ignore any authoring styling.  When a component is based on a <code>button</code> or other HTML control the elements colors will be set to the users color preference and any descendant elements can inherit the color using the <code>currentColor</code> value.  </p>
 
         <p>The <code>currentcolor</code> value is set to the color of the nearest ancestor element and be used to set the color of other properties, including: <code>border</code> and <code>outline</code> on HTML elements, and <code>stroke</code> and <code>fill</code> properties on SVG elements.  The <code>currentcolor</code> can be used without the <code>forced-colors</code> media query.</p>
 
@@ -1202,28 +1254,35 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
           </tbody>
         </table></div>
 
-        <h3 id="computed-system-colors">Computed System Colors</h3>
+        <h3 id="computed-system-colors">System Color Support</h3>
 
-        <p>The following table identifies the current system colors defined in <a href="https://www.w3.org/TR/css-color-4/#css-system-colors">CSS Color Module Level 4</a>.  System colors are supported in all major browsers, but the <strong>actual colors</strong> they render may vary between browsers and operating systems based on default and user theme and contrast settings.</p>
+        <p>The following table identifies the current system colors defined in <a href="https://www.w3.org/TR/css-color-4/#css-system-colors">CSS Color Module Level 4</a>.  System colors are supported in all major browsers, but the default <strong>colors</strong> they render may vary between browsers and operating systems.  When a user enables Contrast Themes not all system colors change to use one of the colors defined in the theme.   The followin table identifies which system colors support a colors in a contrast theme.  Fortunately for the supported, the system colors are consistently rendered between browsers.</p>
 
         <div class="table-wrap"><table aria-labelledby="system-colors" class="data">
           <thead>
             <tr>
-              <th>System Color</th>
-              <th>Computed Sample</th>
-              <th style="min-width: 12em">Computed Color</th>
-              <th>Description</th>
+              <th rowspan="2">System Color</th>
+              <th rowspan="2">Contrast Theme Color</th>
+              <th colspan="2">Theme Support</th>
+              <th rowspan="2">Computed Sample</th>
+              <th rowspan="2">Description</th>
+            </tr>
+            <tr>
+              <th>Chromium</th>
+              <th>Mozilla</th>
             </tr>
           </thead>
-          <tbody id="samples">
+          <tbody id="system-colors">
           </tbody>
         </table></div>
 
-        <div class="support-notice">
-          <div class="caution"><strong>Caution:</strong>
-            The system colors <code>AccentColor</code> and <code>AccentColorText</code> are not supported by the Chrome browser and are not included in the preceding table.  They should not be used since they will result in unpredictable color contrast.
-          </div>
-        </div>
+        <h3 id="system-colors">Supported System Colors in Contrast Themes</h3>
+
+        <p>The following list of colors are considered "safe" to use when a user enables a contrast theme.  Safe colors are color that use one of the theme colors.</p>
+
+        <ul id="usable-system-colors">
+        </ul>
+
 
         <h3 id="forced-colors-example-switch">System Color Example: Switch using <code>div[role="switch"]</code></h3>
 
