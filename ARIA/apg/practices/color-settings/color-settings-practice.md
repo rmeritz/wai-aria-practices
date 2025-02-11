@@ -1363,7 +1363,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
           </tbody>
         </table></div>
 
-        <h3 id="unsupported-system-colors">System Colors that do not support Contrast Themes</h3>
+        <h3 id="do-not-use-system-colors">System Colors that do not support Contrast Themes</h3>
 
         <p>The following list of <code>&lt;system-colors&gt;</code> do not support contrast themes, since they do not render one of the contrast theme colors in both Mozilla (e.g. Firefox) or Chromium (e.g Chrome, Edge, Opera ..) based browsers.</p>
 
