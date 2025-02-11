@@ -1025,7 +1025,7 @@ button.color-scheme[role="switch"] svg circle.off {
             </tr>
             <tr>
               <td>
-                <a href="../../../../content-assets/wai-aria-practices/practices/color-settings/forced-colors-example-switch">
+                <a href="#forced-colors-example-switch">
                   <code>div[role="switch"]</code>
                 </a>
               </td>
@@ -1059,7 +1059,7 @@ button.color-scheme[role="switch"] svg circle.off {
             </tr>
             <tr>
               <td>
-                <a href="../../../../content-assets/wai-aria-practices/practices/color-settings/forced-colors-example-switch">
+                <a href="#forced-colors-example-switch">
                   <code>div[role="switch"]</code>
                 </a>
               </td>
@@ -1098,7 +1098,7 @@ button.color-scheme[role="switch"] svg circle.off {
             </tr>
             <tr>
               <td>
-                <a href="../../../../content-assets/wai-aria-practices/practices/color-settings/forced-colors-example-switch">
+                <a href="#forced-colors-example-switch">
                   <code>div[role="switch"]</code>
                 </a>
               </td>
