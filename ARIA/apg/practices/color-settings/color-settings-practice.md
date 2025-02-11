@@ -93,7 +93,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <a href="https://www.w3.org/WAI/people-use-web/abilities-barriers/visual/">visual disabilities using the web</a>
           need more than the
           <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">required default minimum color contrast</a>.
-          Additionally, people with visual or cognitive disabilities sometimes need combinations of colors that are very different from those specified by an author.
+          Additionally, people with visual or cognitive disabilities sometimes need combinations of colors that are different from those specified by an author.
           Operating systems provide settings that enable those users to increase contrast and choose alternate color themes.
           Web authors can ensure their content is accessible to those users by appropriately responding to such operating system settings.
           This section explains how to make components responsive to color and contrast settings and how to test support for those settings.
@@ -101,7 +101,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
         <p>This section covers:</p>
         <ol>
-          <li>Operating system and user agent features that enable users to adjust rendered colors and contrast ratios.</li>
+          <li>Operating system and browser features that enable users to adjust rendered colors and contrast ratios.</li>
           <li>Using the CSS media queries that support user color and contrast settings (<code>prefers-contrast</code>, <code>prefers-color-scheme</code>, and <code>forced-colors</code>).</li>
           <li>Using <code>&lt;system-colors&gt;</code> CSS data types to provide consistent rendering of components.</li>
           <li>Using the value of <code>currentcolor</code> to inherit the value of the <code>color</code> property value of text content that responds to user color and contrast settings.</li>
@@ -231,13 +231,13 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
       <section id="invert-colors">
         <h2>Invert Colors</h2>
         <p>
-          The invert colors setting is a simple transformation that renders content to its opposite color.
+          The invert colors accessibility setting is an operating system feature that automatically transforms all rendered colors to their opposite.
           For example, content rendered as white is changed to black.
           Content styled as blue is rendered as a brown, i.e., a mixture of red and green.
-          User agents do not provide a media query that can determine whether invert colors is enabled in the operating system.
+          CSS does not provide a media query that enables authors to determine whether invert colors is enabled in the operating system.
         </p>
         <p>
-          To support invert colors effectively, ensure content meets
+          For content to render well when invert colors is enabled, ensure it meets
           <a href="https://www.w3.org/TR/WCAG22/#contrast-minimum">WCAG 1.4.3: Contrast (Minimum)</a>.
         </p>
         <p>
@@ -267,11 +267,18 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
       <section id="prefers-contrast">
         <h2>Increase Contrast</h2>
         <p>
-          Increase contrast is an operating system feature, typically available in accessibility settings, that enables users to specify a preference for contrast that is higher than default minimum.
-          When the increase contrast setting is enabled, the <code>prefers-contrast</code> media query changes from <code>no-preference</code> to <code>more</code>.
-          To support the increase contrast setting, change  the rendering of text content and components to use a color scheme that meets or exceeds the requirements specified in
-          <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced">WCAG 1.4.6: Contrast (Enhanced)</a>.
+          Increase contrast is an operating system feature, usually available in accessibility settings, that enables users to specify a preference for contrast that is higher than default minimum.
+          When users turn on increased contrast, each operating system changes the contrast of its own user interface differently; there is no standard for how much contrast should be increased.
+          Typically, this setting does not automatically change rendering of native apps or web content, so users benefit only when authors provide support for it.
         </p>
+        <p>To support the increase contrast setting:</p>
+        <ol>
+          <li>
+            Develop an increased contrast color scheme that meets or exceeds the requirements specified in
+            <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced">WCAG 1.4.6: Contrast (Enhanced)</a>.
+          </li>
+          <li>When the the <code>prefers-contrast</code> media query changes from <code>no-preference</code> to <code>more</code>, render content using the increased contrast color scheme.</li>
+        </ol>
         <p>Note: Operating systems that support the <code>forced-colors</code> media query set <code>prefers-contrast</code> to <code>custom</code> when the <code>forced-colors</code> is set to <code>active</code>.  </p>
         <h3 id="prefers-contrast-example">Increase Contrast Example</h3>
         <p> Enable the "increased contrast" feature on your device, and color contrast ratios in the below example will change:</p>
@@ -680,7 +687,7 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <p>The <code>forced-colors</code> CSS media query provides a means for components to use the color preferences of people with visual impairments.   When the user chooses a contrast theme in the operating system (i.e. in Windows 11 Accessibility Settings &gt; Contrast Theme), browsers set the <code>forced-colors</code> property to <code>active</code>.  When forced colors are active the browser overrides any author styling and applies the system color associated with the theme to each element.   Authors need to match the styling preferences of users with the semantics features of their components. For example text used in custom components for labels and instructions should use the same colors as the users contrast theme for text content.  Components that behave as links need to match the contrast theme styling for links and other interactive custom components should be based on the styling used for buttons, textbox and range controls for their features.</p>
 
-        <p>Authors can use either <code>currentcolor</code> or <code>&lt;system-colors&gt;</code> CSS values for components to adapt to appropriate colors in the contrast theme.  The following two tables demonstrate the colors for the built-in Contrast Themes to Windows 11.  Each Contrast Theme defines 8 colors associated with user iterface features.  The first table identifies the user interface features and the colors associated with each feature for the four default Contrast Themes.  The second table shows how HTML content is rendered in the Windows 11 Aquatic, Desert and Nigh Sky Contrast Themes.</p>
+        <p>Authors can use either <code>currentcolor</code> or <code>&lt;system-colors&gt;</code> CSS values for components to adapt to appropriate colors in the contrast theme.  The following two tables demonstrate the colors for the built-in Contrast Themes to Windows 11.  Each Contrast Theme defines 8 colors associated with user interface features.  The first table identifies the user interface features and the colors associated with each feature for the four default Contrast Themes.  The second table shows how HTML content is rendered in the Windows 11 Aquatic, Desert and Nigh Sky Contrast Themes.</p>
 
 
         <div class="table-wrap"><table class="data">
@@ -711,7 +718,7 @@ button.color-scheme[role="switch"] svg circle.off {
               <th rowspan="2" style="vertical-align: bottom">Element</th>
               <th rowspan="2" style="vertical-align: bottom">Sample</th>
               <th rowspan="2" style="vertical-align: bottom">System<br>Colors</th>
-              <th colspan="3">Contrast Themes Windows 11</th>
+              <th colspan="3">Contrast Themes Windows 11 (Chrome)</th>
             </tr>
             <tr>
               <th>Aquatic</th>
@@ -734,13 +741,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-aquatic-theme.png" alt="screen shot of paragraph with no styling in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-aquatic-theme.png" alt="screen shot of paragraph with no styling in Aquatic Contrast theme using Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-desert-theme.png" alt="screen shot of paragraph with no styling in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-desert-theme.png" alt="screen shot of paragraph with no styling in Desert Contrast theme using Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-night-sky-theme.png" alt="screen shot of paragraph with no styling in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/p-element-night-sky-theme.png" alt="screen shot of paragraph with no styling in Night Sky Contrast theme using Chrome browser">
               </td>
             </tr>
             <tr id="system-color-links">
@@ -760,13 +767,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-aquatic-theme.png" alt="screen shot of link in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-aquatic-theme.png" alt="screen shot of active and disabled links in Aquatic Contrast theme using Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-desert-theme.png" alt="screen shot of link in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-desert-theme.png" alt="screen shot of active and disabled links in Desert Contrast theme using Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-night-sky-theme.png" alt="screen shot of link in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/a-element-night-sky-theme.png" alt="screen shot of active and disabled links in Night Sky Contrast theme using Chrome browser">
               </td>
             </tr>
             <tr>
@@ -786,13 +793,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-aquatic-theme.png" alt="screen shot of button in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-aquatic-theme.png" alt="screen shot of active and disabled buttons in Aquatic Contrast them eusing Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-desert-theme.png" alt="screen shot of button in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-desert-theme.png" alt="screen shot of active and disabled buttons in Desert Contrast theme using Chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-night-sky-theme.png" alt="screen shot of button in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/button-element-night-sky-theme.png" alt="screen shot of  active and disabled buttons in Night Sky Contrast theme using Chrome browser">
               </td>
             </tr>
             <tr>
@@ -821,13 +828,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of checkboxes in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-aquatic-theme.png" alt="screen shot of unchecked, checked and disabled checkboxes in Aquatic Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of checkboxes in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-desert-theme.png" alt="screen shot of unchecked, checked and disabled checkboxes in Desert Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of checkboxes in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/checkbox-element-night-sky-theme.png" alt="screen shot of unchecked, checked and disabled checkboxes in Night Sky Contrast theme using chrome browser">
               </td>
             </tr>
             <tr>
@@ -835,7 +842,7 @@ button.color-scheme[role="switch"] svg circle.off {
                 Radio Buttons
               </td>
               <td>
-                <feildset class="system-colors">
+                <fieldset class="system-colors">
                   <legend>Radio Group</legend>
                   <label class="system-colors" for="radio-1">
                     <input id="radio-1" type="radio" name="sample">Radio 1
@@ -849,7 +856,7 @@ button.color-scheme[role="switch"] svg circle.off {
                   <label class="system-colors" for="radio-4">
                     <input id="radio-4" type="radio" name="sample" disabled>Radio 4
                   </label>
-                </feildset>
+                </fieldset>
               </td>
               <td>
                 <ul class="system-colors">
@@ -862,13 +869,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-aquatic-theme.png" alt="screen shot of radio buttons in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-aquatic-theme.png" alt="screen shot of unchecked, checked and disabled radio buttons in Aquatic Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-desert-theme.png" alt="screen shot of radio buttons in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-desert-theme.png" alt="screen shot of unchecked, checked and disabled radio buttons in Desert Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-night-sky-theme.png" alt="screen shot of radio buttons in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/radio-element-night-sky-theme.png" alt="screen shot of unchecked, checked and disabled radio buttons in Night Sky Contrast theme using chrome browser">
               </td>
             </tr>
 
@@ -897,13 +904,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-aquatic-theme.png" alt="screen shot of text box in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-aquatic-theme.png" alt="screen shot of active and disabled text boxes in Aquatic Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-desert-theme.png" alt="screen shot of text box in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-desert-theme.png" alt="screen shot of active and disabled text boxes in Desert Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-night-sky-theme.png" alt="screen shot of text box in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-text-element-night-sky-theme.png" alt="screen shot of active and disabled text boxes in Night Sky Contrast theme using chrome browser">
               </td>
             </tr>
             <tr>
@@ -925,13 +932,13 @@ button.color-scheme[role="switch"] svg circle.off {
                 </ul>
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-aquatic-theme.png" alt="screen shot of text box in Aquatic Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-aquatic-theme.png" alt="screen shot of active and disabled range slider in Aquatic Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-desert-theme.png" alt="screen shot of text box in Desert Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-desert-theme.png" alt="screen shot of  active and disabled range slider in Desert Contrast theme using chrome browser">
               </td>
               <td>
-                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-night-sky-theme.png" alt="screen shot of text box in Night Sky Contrast theme">
+                <img class="theme" src="../../../../content-images/wai-aria-practices/practices/color-settings/images/input-range-element-night-sky-theme.png" alt="screen shot of  active and disabled range slider in Night Sky Contrast theme using chrome browser">
               </td>
             </tr>
           </tbody>
@@ -941,7 +948,7 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <p>Current color can be used when the custom component is based on existing HTML elements and the system color matches the semantics of the features of the component.  For example, the following section includes an switch component example using the <code>button</code> element.   The <code>currentcolor</code> value is used for styling the SVG elements to ensure they use same color as the button element for borders, fill, stroke and text.  Another advantage of using <code>currentcolor</code> is it can often be used without including a <code>forced-colors: active</code> media query, simplifying CSS code. One concern of using current color is there is no direct control of the background color, so care must be taken to ensure the background color of the ancestor element is visible and provides sufficient contrast for the features of the custom component.  If there is not sufficient contrast, a media query will be needed an an appropriate background system color defined.</p>
 
-        <p>System colors values should be used when the custom elements are built using elements whose current color does not match the semantics of the custom component and when <code>currentcolor</code> is insufficient for matching the styling needs of the component to make it's features discernible.  Using System colors allows for setting both foreground and background colors and making features of the custom control identifiable.  For example using <code>div</code> elements to build a custom slider component.  If the <code>currentColor</code> value is used the <code>div</code> elements cause the features of the slider to be rendered using the <code>CanvasText</code> color, when the slider features should be rendered using <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code>. System Colors require using the <code>forced-colors: active</code> media query to ensure the system colors are only used to override the authors theme when the use renables a Contrast Theme.</p>
+        <p>System colors values should be used when the custom elements are built using elements whose current color does not match the semantics of the custom component and when <code>currentcolor</code> is insufficient for matching the styling needs of the component to make it's features discernible.  Using System colors allows for setting both foreground and background colors and making features of the custom control identifiable.  For example using <code>div</code> elements to build a custom slider component.  If the <code>currentColor</code> value is used the <code>div</code> elements cause the features of the slider to be rendered using the <code>CanvasText</code> color, when the slider features should be rendered using <code>ButtonBorder</code>, <code>ButtonFace</code> and <code>ButtonText</code>. System Colors require using the <code>forced-colors: active</code> media query to ensure the system colors are only used to override the authors theme when the use reenables a Contrast Theme.</p>
 
        <div class="table-wrap"><table class="data">
           <caption>Summary of Current Color vs. System Color for Interactive Components</caption>
@@ -990,15 +997,16 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <h4 id="compare-switch-examples">Comparing Switch Examples</h4>
 
-        <p>The following tables describe the differences in the two switch examples using Current Color and System Colors.
+        <p>The switch examples for Current Color and System Color have very similar code.  The main difference in the HTML code is the Current Color example is based on using the <code>button</code> element and the System Color example is based on a <code>div</code> element.  Both have the <code>role</code> attribute with the value <code>switch</code>.  The descendant elements include <code>span</code> elements for the labels, a SVG <code>rect</code> element for the focus ring and two SVG <code>circle</code> elements to identify the on and off states of the switch.</p>
 
+        <p>The following tables describe the differences in the CSS code for switch examples using Current Color and System Colors.  The System Color example is able to use a larger color pallet to style the features of the switch, for example the <code>fill</code> of the offf state SVG <code>circle</code> using the <code>GrayText</code> System Color and the <code>circle</code> for the on state is styled using <code>ActiveText</code>.</p>
 
        <div class="table-wrap"><table class="data">
           <caption>Switch Label</caption>
           <thead>
             <tr>
               <th rowspan="2" style="width: 5em">Example</th>
-              <th colspan="2">Label Span</th>
+              <th colspan="2">Label Spans</th>
             </tr>
             <tr>
               <th class="exampleColor">Background-Color</th>
@@ -1031,7 +1039,7 @@ button.color-scheme[role="switch"] svg circle.off {
           <caption>Focus Ring</caption>
           <thead>
             <tr>
-              <th rowspan="2"style="width: 5em">Example</th>
+              <th rowspan="2" style="width: 5em">Example</th>
               <th colspan="2">Focus Ring SVG Rect</th>
             </tr>
             <tr>
@@ -1105,7 +1113,7 @@ button.color-scheme[role="switch"] svg circle.off {
 
         <h3>Using Current Color</h3>
 
-        </p><p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element, making <code>currentcolor</code> a convenient means for custom components using existing form controls like <code>input</code> and <code>button</code> elements to also automatically adapt to changes in contrast themes.  When the user chooses a contrast theme the browser sets the <code>color</code> and <code>background-color</code> values of HTML elements and ignore any authoring styling.  When a component is based on a <code>button</code> or other HTML control the elements colors will be set to the users color preference and any descendant elements can inherit the color using the <code>currentColor</code> value.  </p>
+        <p>The <code>currentcolor</code> keyword provides a means for components to use the color value of ancestors to set the color properties of an element, making <code>currentcolor</code> a convenient means for custom components using existing form controls like <code>input</code> and <code>button</code> elements to also automatically adapt to changes in contrast themes.  When the user chooses a contrast theme the browser sets the <code>color</code> and <code>background-color</code> values of HTML elements and ignore any authoring styling.  When a component is based on a <code>button</code> or other HTML control the elements colors will be set to the users color preference and any descendant elements can inherit the color using the <code>currentColor</code> value.  </p>
 
         <p>The <code>currentcolor</code> value is set to the color of the nearest ancestor element and be used to set the color of other properties, including: <code>border</code> and <code>outline</code> on HTML elements, and <code>stroke</code> and <code>fill</code> properties on SVG elements.  The <code>currentcolor</code> can be used without the <code>forced-colors</code> media query.</p>
 
@@ -1355,7 +1363,7 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
           </tbody>
         </table></div>
 
-        <h3 id="system-colors">System Colors that do not support Contrast Themes</h3>
+        <h3 id="unsupported-system-colors">System Colors that do not support Contrast Themes</h3>
 
         <p>The following list of <code>&lt;system-colors&gt;</code> do not support contrast themes, since they do not render one of the contrast theme colors in both Mozilla (e.g. Firefox) or Chromium (e.g Chrome, Edge, Opera ..) based browsers.</p>
 
