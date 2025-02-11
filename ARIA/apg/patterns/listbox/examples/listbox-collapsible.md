@@ -12,7 +12,7 @@ permalink: /ARIA/apg/patterns/listbox/examples/listbox-collapsible/
 
 sidebar: true
 
-footer: "      <div class='example-page-footer'>        <p><a href='https://github.com/orgs/w3c/projects/131'>View issues related to this example</a></p>        <p>Page last updated: 19 November 2024</p>      </div>    "
+footer: "      <div class='example-page-footer'>        <p><a href='https://github.com/w3c/aria-practices/projects/13'>View issues related to this example</a></p>        <p>Page last updated: 27 July 2024</p>      </div>    "
 
 # Context here: https://github.com/w3c/wai-aria-practices/issues/31
 type_of_guidance: APG
@@ -129,7 +129,6 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
               <div id="exp_wrapper">
                 <button type="button" aria-haspopup="listbox" aria-labelledby="exp_elem exp_button" id="exp_button">Neptunium</button>
                 <ul id="exp_elem_list" tabindex="-1" role="listbox" aria-labelledby="exp_elem" class="hidden">
-                  <li id="exp_elem_None" role="option">None</li>
                   <li id="exp_elem_Np" role="option">Neptunium</li>
                   <li id="exp_elem_Pu" role="option">Plutonium</li>
                   <li id="exp_elem_Am" role="option">Americium</li>

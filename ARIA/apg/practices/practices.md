@@ -120,6 +120,17 @@ lang: en
       </li>
 
       <li class="tile">
+        <a href="color-settings/">
+          <h2 class="tile-name">
+            <span>Supporting Color Contrast Settings</span>
+          </h2>
+        </a>
+        <div class="tile-introduction">
+          Meet people's needs for higher contrast or different colors by making content responsive to operating system color and contrast settings.
+        </div>
+      </li>
+
+      <li class="tile">
         <a href="structural-roles/">
           <h2 class="tile-name">
             <span>Structural Roles</span>
