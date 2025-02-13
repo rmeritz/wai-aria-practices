@@ -1353,10 +1353,10 @@ button.current-color[role="switch"][aria-checked="true"] svg circle.on {
         <div class="table-wrap"><table aria-labelledby="system-colors" class="data">
           <thead>
             <tr>
-              <th rowspan="2">System Color</th>
-              <th rowspan="2">Contrast Theme Color</th>
-              <th rowspan="2">Computed Color</th>
-              <th rowspan="2">Description</th>
+              <th>System Color</th>
+              <th>Contrast Theme Color</th>
+              <th>Computed Color</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody id="system-colors">
