@@ -103,14 +103,14 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
         <h2>Examples</h2>
 
         <ul>
-          <li><a href="#banner">Banner Design Pattern</a></li>
-          <li><a href="#complementary">Complementary Design Pattern</a></li>
-          <li><a href="#contentinfo">Contentinfo Design Pattern</a></li>
-          <li><a href="#form">Form Design Pattern</a></li>
-          <li><a href="#main">Main Design Pattern</a></li>
-          <li><a href="#navigation">Navigation Design Pattern</a></li>
-          <li><a href="#region">Region Design Pattern</a></li>
-          <li><a href="#search">Search Design Pattern</a></li>
+          <li><a href="#banner">Banner Landmark</a></li>
+          <li><a href="#complementary">Complementary Landmark</a></li>
+          <li><a href="#contentinfo">Contentinfo Landmark</a></li>
+          <li><a href="#form">Form Landmark</a></li>
+          <li><a href="#main">Main Landmark</a></li>
+          <li><a href="#navigation">Navigation Landmark</a></li>
+          <li><a href="#region">Region Landmark</a></li>
+          <li><a href="#search">Search Landmark</a></li>
           <li><a href="#at">Assistive Technology Support</a></li>
           <li><a href="#resources">ARIA Landmark Resources and Tools</a></li>
         </ul>
@@ -121,7 +121,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="banner" class="landmark">
-          <h2>Banner Design Pattern</h2>
+          <h2>Banner Landmark</h2>
 
           <p>A banner landmark identifies site-oriented content at the beginning of each page within a website. Site-oriented content typically includes things such as the logo or identity of the site sponsor, and site-specific search tool. A banner usually appears at the top of the page and typically spans the full width.</p>
 
@@ -231,7 +231,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="complementary" class="landmark">
-          <h2>Complementary Design Pattern</h2>
+          <h2>Complementary Landmark</h2>
 
           <p>A <code>complementary</code> landmark is a supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content.</p>
 
@@ -373,7 +373,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="contentinfo" class="landmark">
-          <h2>Contentinfo Design Pattern</h2>
+          <h2>Contentinfo Landmark</h2>
 
           <p> A <code>contentinfo</code> landmark is a way to identify common information at the bottom of each page within a website, typically called the "footer" of the page, including information such as copyrights and links to privacy and accessibility statements. </p>
 
@@ -483,7 +483,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="form" class="landmark">
-          <h2>Form Design Pattern</h2>
+          <h2>Form Landmark</h2>
 
           <p> A <code>form</code> landmark identifies a region that contains a collection of items and objects that, as a whole, combine to create a form when no other named landmark is appropriate (e.g. main or search). </p>
 
@@ -675,7 +675,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="main" class="landmark">
-          <h2>Main Design Pattern</h2>
+          <h2>Main Landmark</h2>
 
           <p> A <code>main</code> landmark identifies the primary content of the page. </p>
 
@@ -820,7 +820,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="navigation" class="landmark">
-          <h2>Navigation Design Pattern</h2>
+          <h2>Navigation Landmark</h2>
 
           <p> Navigation landmarks provide a way to identify groups (e.g. lists) of links that are intended to be used for website or page content navigation.</p>
 
@@ -982,7 +982,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="region" class="landmark">
-          <h2>Region Design Pattern</h2>
+          <h2>Region Landmark</h2>
 
           <p> A <code>region</code> landmark is a perceivable section containing content that is relevant to a specific, author-specified purpose and sufficiently important that users will likely want to be able to navigate to the section easily and to have it listed in a summary of the page.</p>
 
@@ -1182,7 +1182,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
 
 
         <section id="search" class="landmark">
-          <h2>Search Design Pattern</h2>
+          <h2>Search Landmark</h2>
 
           <p>A <code>search</code> landmark contains a collection of items and objects that, as a whole, combine to create search functionality to content on the website.</p>
 
@@ -1485,8 +1485,9 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           <h3>Tools</h3>
 
           <ul>
-            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/">SkipTo.js: Page Script (used on this page), Bookmarklets and Browser Extensions</a></li>
-            <li><a href="https://skipto-landmarks-headings.github.io">SkipTo Landmarks &amp; Headings: Browser Extension</a></li>
+            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/extensions.html">SkipTo.js: Browser Extensions</a></li>
+            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/bookmarklets.html">SkipTo.js: Bookmarklets</a></li>
+            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html">SkipTo.js: Page Script</a> (used on this page)</li>
             <li><a href="http://matatk.agrip.org.uk/landmarks/">Landmarks Browser Extension</a></li>
             <li><a href="https://accessibility-bookmarklets.org/">Accessibility Bookmarklets: Landmark Bookmarklet</a></li>
             <li><a href="http://whatsock.com/training/matrices/visual-aria.htm">The Visual ARIA Bookmarklet</a></li>
