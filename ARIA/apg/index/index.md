@@ -103,7 +103,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
               <ul>
                 <li><a href="../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../patterns/landmarks/examples/banner.html">Banner Landmark</a></li>
+                <li><a href="../patterns/landmarks/#banner">Banner Landmark</a></li>
               </ul>
             </td>
           </tr>
@@ -148,7 +148,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           </tr>
           <tr>
             <td><code>complementary</code></td>
-            <td><a href="../patterns/landmarks/examples/complementary.html">Complementary Landmark</a></td>
+            <td><a href="../patterns/landmarks/#complementary">Complementary Landmark</a></td>
           </tr>
           <tr>
             <td><code>contentinfo</code></td>
@@ -156,7 +156,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
               <ul>
                 <li><a href="../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../patterns/landmarks/examples/contentinfo.html">Contentinfo Landmark</a></li>
+                <li><a href="../patterns/landmarks/#contentinfo">Contentinfo Landmark</a></li>
               </ul>
             </td>
           </tr>
@@ -176,7 +176,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           </tr>
           <tr>
             <td><code>form</code></td>
-            <td><a href="../patterns/landmarks/examples/form.html">Form Landmark</a></td>
+            <td><a href="../patterns/landmarks/#form">Form Landmark</a></td>
           </tr>
           <tr>
             <td><code>grid</code></td>
@@ -238,7 +238,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           </tr>
           <tr>
             <td><code>main</code></td>
-            <td><a href="../patterns/landmarks/examples/main.html">Main Landmark</a></td>
+            <td><a href="../patterns/landmarks/#main">Main Landmark</a></td>
           </tr>
           <tr>
             <td><code>menu</code></td>
@@ -297,7 +297,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
               <ul>
                 <li><a href="../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../patterns/landmarks/examples/navigation.html">Navigation Landmark</a></li>
+                <li><a href="../patterns/landmarks/#navigation">Navigation Landmark</a></li>
               </ul>
             </td>
           </tr>
@@ -361,7 +361,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="../patterns/carousel/examples/carousel-2-tablist/">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../patterns/menubar/examples/menubar-navigation/">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
                 <li><a href="../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../patterns/landmarks/examples/region.html">Region Landmark</a></li>
+                <li><a href="../patterns/landmarks/#region">Region Landmark</a></li>
               </ul>
             </td>
           </tr>
@@ -382,7 +382,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           </tr>
           <tr>
             <td><code>search</code></td>
-            <td><a href="../patterns/landmarks/examples/search.html">Search Landmark</a></td>
+            <td><a href="../patterns/landmarks/#search">Search Landmark</a></td>
           </tr>
           <tr>
             <td><code>separator</code></td>
@@ -749,12 +749,12 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
                 <li><a href="../patterns/treeview/examples/treeview-1a/">File Directory Treeview  Using Computed Properties</a></li>
                 <li><a href="../patterns/treeview/examples/treeview-1b/">File Directory Treeview  Using Declared Properties</a></li>
                 <li><a href="../patterns/treeview/examples/treeview-navigation/">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</li>
-                <li><a href="../patterns/landmarks/examples/complementary.html">Complementary Landmark</a></li>
-                <li><a href="../patterns/landmarks/examples/form.html">Form Landmark</a></li>
-                <li><a href="../patterns/landmarks/examples/main.html">Main Landmark</a></li>
-                <li><a href="../patterns/landmarks/examples/navigation.html">Navigation Landmark</a></li>
-                <li><a href="../patterns/landmarks/examples/region.html">Region Landmark</a></li>
-                <li><a href="../patterns/landmarks/examples/search.html">Search Landmark</a></li>
+                <li><a href="../patterns/landmarks/#complementary">Complementary Landmark</a></li>
+                <li><a href="../patterns/landmarks/#form">Form Landmark</a></li>
+                <li><a href="../patterns/landmarks/#main">Main Landmark</a></li>
+                <li><a href="../patterns/landmarks/#navigation">Navigation Landmark</a></li>
+                <li><a href="../patterns/landmarks/#region">Region Landmark</a></li>
+                <li><a href="../patterns/landmarks/#search">Search Landmark</a></li>
               </ul>
             </td>
           </tr>
