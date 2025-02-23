@@ -53,6 +53,7 @@ class ListboxButton {
       case 'ArrowDown':
         evt.preventDefault();
         this.showListbox();
+        this.listbox.checkKeyPress(evt);
         break;
     }
   }
